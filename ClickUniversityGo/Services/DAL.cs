@@ -75,6 +75,36 @@ namespace ClickUniversityGo.Services
             return Favorites;
         }
 
+        public int AddToFavorites(Favorite f)
+        {
+            string executeQuery = "INSERT INTO Favorites (UserID, UniversityID) VALUES (@userID, @universityID)";
+
+            int result = conn.Execute(executeQuery, new { userID = f.UserID, universityID = f.UniversityID });
+            conn.Close();
+            return result;
+        }
+
+        public int RemoveFromFavorites(int id)
+        {
+            string delete = "DELETE FROM Favorites WHERE ID = @id";
+            int result = conn.Execute(delete, new { id = id });
+            conn.Close();
+            return result;
+        }
+
+        public IEnumerable<JoinedItem> GetAllFavorites(int id)
+        {
+            string command = "SELECT f.ID, f.UserID, u.UniversityName FROM ";
+            command += "Favorites f INNER JOIN Universities u ON f.ID = t.TicketID WHERE f.UserID=@id";
+
+            IEnumerable<JoinedItem> result = conn.Query<JoinedItem>(command,
+                new { id = id });
+
+            conn.Close();
+
+            return result;
+        }
+
         // ************************ Q and A ********************
         public IEnumerable<Question> GetAllQuestions()
         {
