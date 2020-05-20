@@ -13,6 +13,9 @@ import { QandaComponent } from './qanda/qanda.component';
 import { QandaDetailComponent } from './qanda-detail/qanda-detail.component';
 import { UniversitiesComponent } from './universities/universities.component';
 import { UniversityDetailComponent } from './university-detail/university-detail.component';
+import { UniversitiesDataService } from './universities-data.service';
+import { FavoritesDataService } from './favorites-data.service';
+import { QandaDataService } from './qanda-data.service';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
@@ -42,7 +45,10 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     ])
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    UniversitiesDataService,
+    FavoritesDataService,
+    QandaDataService
   ],
   bootstrap: [AppComponent]
 })
