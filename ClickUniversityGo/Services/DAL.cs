@@ -95,7 +95,7 @@ namespace ClickUniversityGo.Services
         public IEnumerable<JoinedItem> GetAllFavorites(int id)
         {
             string command = "SELECT f.ID, f.UserID, u.UniversityName FROM ";
-            command += "Favorites f INNER JOIN Universities u ON f.ID = t.TicketID WHERE f.UserID=@id";
+            command += "Favorites f INNER JOIN Universities u ON f.ID = u.ID WHERE f.UserID=@id";
 
             IEnumerable<JoinedItem> result = conn.Query<JoinedItem>(command,
                 new { id = id });
@@ -112,6 +112,23 @@ namespace ClickUniversityGo.Services
             IEnumerable<Question> Questions = conn.Query<Question>(queryString);
             conn.Close();
             return Questions;
+        }
+
+        public Question GetQuestionById(int id)
+        {
+            string queryString = "SELECT * FROM Questions WHERE ID = @id";
+
+            Question result = conn.QueryFirst<Question>(queryString, new { id = id });
+            conn.Close();
+            return result;
+        }
+
+        public IEnumerable<Answer> GetAnswersByQuestionId(int id)
+        {
+            string queryString = "SELECT * FROM Answer WHERE QuestionId = @id";
+            IEnumerable<Answer> Answers = conn.Query<Answer>(queryString, new { id = id });
+            conn.Close();
+            return Answers;
         }
 
         // ************************ User Profiles ********************\
