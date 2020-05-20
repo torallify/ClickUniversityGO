@@ -2,41 +2,43 @@ USE ClickUniversityGoDB
 
 CREATE TABLE Universities (
 	ID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-	UniversityName nvarchar (500),
-	State nvarchar (50),
-	CostOnCampusInState int,
-	CostOnCampusOutOfState int,
-	CostOffCampusInState int,
-	CostOffCampusOutOfState int,
-	PercentAdmitted tinyint,
-	NumBachelor int,
-	NumAssociate int,
-	GraduationRate tinyint,
-	ACTComposite int,
-	ACTEnglish int,
-	ACTMath int,
-	SATReadWrite int,
-	SATMath int,
-	ProgramEducation int,
-	ProgramEngineering int,
-	ProgramScience int,
-	ProgramMath int,
-	ProgramPhysicalScience int,
-	ProgramBusiness int,
+	UniversityName NVARCHAR (500),
+	Website NVARCHAR (100),
+	State NVARCHAR (50),
+	CostOnCampusInState INT,
+	CostOnCampusOutOfState INT,
+	CostOffCampusInState INT,
+	CostOffCampusOutOfState INT,
+	PercentAdmitted TINYINT,
+	UndergradEnrollment INT,
+	NumAssociate INT,
+	NumBachelor INT,
+	GraduationRate TINYINT,
+	ACTComposite INT,
+	ACTEnglish INT,
+	ACTMath INT,
+	SATReadWrite INT,
+	SATMath INT,
+	ProgramEducation INT,
+	ProgramEngineering INT,
+	ProgramScience INT,
+	ProgramMath INT,
+	ProgramPhysicalScience INT,
+	ProgramBusiness INT,
 );
-
-select * from Universities
 
 INSERT INTO Universities (
 	UniversityName,
+	Website,
 	State,
 	CostOnCampusInState,
 	CostOnCampusOutOfState,
 	CostOffCampusInState,
 	CostOffCampusOutOfState,
 	PercentAdmitted,
-	NumBachelor,
+	UndergradEnrollment,
 	NumAssociate,
+	NumBachelor,
 	GraduationRate,
 	ACTComposite,
 	ACTEnglish,
@@ -51,9 +53,10 @@ INSERT INTO Universities (
 	ProgramBusiness
 )
 VALUES 
-	('Top Tuition University', 'NY', 200000, 400000, 100000, 200000, 15, 6000, 0, 20, 35, 35, 35, 778, 778, 1000, 1000, 1000, 1000, 1000, 1000),
-	('Bottom Sill Not Bad University', 'OH', 1000, 2000, 500, 1000, 100, 20000, 100000, 99, 15, 15, 15, 334, 334, 10000, 2000, 2000, 1000, 1000, 4000);
+	('Top Tuition University', 'www.msu.edu', 'MI', 200000, 400000, 100000, 200000, 15, 6000, 0, 6000, 20, 35, 35, 35, 778, 778, 1000, 1000, 1000, 1000, 1000, 1000),
+	('Bottom Sill Not Bad University', 'www.osu.edu', 'OH', 1000, 2000, 500, 1000, 100, 20000, 100000, 20000, 99, 15, 15, 15, 334, 334, 10000, 2000, 2000, 1000, 1000, 4000);
 
+select * from Universities
 
 CREATE TABLE UserProfiles (
 	ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -112,5 +115,3 @@ USE [master]
 GO
 ALTER DATABASE ClickUniversityGoDB SET READ_WRITE 
 GO
-
-select * from Answers
