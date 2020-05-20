@@ -9,12 +9,14 @@ namespace ClickUniversityGo.Models
     {
         public int ID { get; set; }
         public string UniversityName { get; set; }
+        public string Website { get; set; }
         public string State { get; set; }
         public int CostOnCampusInState { get; set; }
         public int CostOnCampusOutOfState { get; set; }
         public int CostOffCampusInState { get; set; }
         public int CostOffCampusOutOfState { get; set; }
         public byte PercentAdmitted { get; set; }
+        public int UndergradEnrollment { get; set; }
         public int NumBachelor { get; set; }
         public int NumAssociate { get; set; }
         public byte GraduationRate { get; set; }
