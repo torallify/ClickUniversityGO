@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClickUniversityGo.Models;
+using ClickUniversityGo.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace ClickUniversityGo.Controllers
 {
@@ -11,12 +14,22 @@ namespace ClickUniversityGo.Controllers
     [ApiController]
     public class UniversityController : ControllerBase
     {
-        //// GET: api/University
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+
+        IConfiguration ConfigRoot;
+        private DAL dal;
+
+        public UniversityController(IConfiguration config)
+        {
+            ConfigRoot = config;
+            dal = new DAL(ConfigRoot.GetConnectionString("DefaultConnection"));
+        }
+
+        // GET: api/University
+        [HttpGet]
+        public IEnumerable<University> Get()
+        {
+            return dal.GetAllUniversities();
+        }
 
         //// GET: api/University/5
         //[HttpGet("{id}", Name = "Get")]

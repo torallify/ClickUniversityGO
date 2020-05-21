@@ -15,7 +15,7 @@ import { UniversitiesComponent } from './universities/universities.component';
 import { UniversityDetailComponent } from './university-detail/university-detail.component';
 import { UniversitiesDataService } from './universities-data.service';
 import { FavoritesDataService } from './favorites-data.service';
-import { QandaDataService } from './qanda-data.service';
+import { QandADataService } from './qanda-data.service';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
@@ -40,6 +40,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'universities', component: UniversitiesComponent}
       //{ path: 'counter', component: CounterComponent },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ])
@@ -48,7 +49,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
     UniversitiesDataService,
     FavoritesDataService,
-    QandaDataService
+    QandADataService
   ],
   bootstrap: [AppComponent]
 })

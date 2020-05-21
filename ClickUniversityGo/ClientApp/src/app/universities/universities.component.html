@@ -1,1 +1,8 @@
-﻿<div style="border: 1px solid red">universities Component</div>
+<h1>All Universities Test</h1>
+<div *ngFor="let university of universities">
+  <div>
+    {{university.universityName}}
+    {{university.state}}
+    <img src="https://logo.clearbit.com/{{university.website}}">
+  </div>
+</div>
