@@ -261,6 +261,40 @@ namespace ClickUniversityGo.Services
             return result;
         }
 
+
+        public IEnumerable<Question> GetQuestionsByUserName(string userName)
+        {
+            string queryString = "SELECT * FROM Questions WHERE UserName = @userName";
+            IEnumerable<Question> Questions = conn.Query<Question>(queryString);
+            conn.Close();
+            return Questions;
+        }
+
+
+        public IEnumerable<Question> GetQuestionsByPostedASC(DateTime date)
+        {
+            string queryString = "SELECT * FROM Questions WHERE Posted = @date Order By Posted ASC";
+            IEnumerable<Question> Questions = conn.Query<Question>(queryString);
+            conn.Close();
+            return Questions;
+        }
+
+        public IEnumerable<Question> GetQuestionsByPostedDESC(DateTime date)
+        {
+            string queryString = "SELECT * FROM Questions WHERE Posted = @date Order By Posted DESC";
+            IEnumerable<Question> Questions = conn.Query<Question>(queryString);
+            conn.Close();
+            return Questions;
+        }
+
+        public IEnumerable<Question> GetQuestionsByCategory(string category)
+        {
+            string queryString = "SELECT * FROM Questions WHERE Category = @category";
+            IEnumerable<Question> Questions = conn.Query<Question>(queryString);
+            conn.Close();
+            return Questions;
+        }
+
         public IEnumerable<Answer> GetAnswersByQuestionId(int id)
         {
             string queryString = "SELECT * FROM Answer WHERE QuestionId = @id";
@@ -268,6 +302,7 @@ namespace ClickUniversityGo.Services
             conn.Close();
             return Answers;
         }
+
 
         // ************************ User Profiles ********************\
         public IEnumerable<UserProfile> GetAllUsers()
@@ -278,5 +313,12 @@ namespace ClickUniversityGo.Services
             return UserProfiles;
         }
 
+        public UserProfile GetUserById(string id)
+        {
+            string queryString = "SELECT * FROM UserProfiles WHERE UserID = @id";
+            UserProfile User = conn.QueryFirst<UserProfile>(queryString);
+            conn.Close();
+            return User;
+        }
     }
 }
