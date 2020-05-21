@@ -10,6 +10,7 @@ namespace ClickUniversityGo.Services
 {
     public class DAL
     {
+        //This allows connection to SQL
         SqlConnection conn;
 
         public DAL(string connectionString)
