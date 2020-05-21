@@ -15,8 +15,6 @@ CREATE TABLE Universities (
 	NumBachelor INT,
 	GraduationRate TINYINT,
 	ACTComposite INT,
-	ACTEnglish INT,
-	ACTMath INT,
 	SATReadWrite INT,
 	SATMath INT,
 	ProgramEducation INT,
@@ -41,8 +39,6 @@ INSERT INTO Universities (
 	NumBachelor,
 	GraduationRate,
 	ACTComposite,
-	ACTEnglish,
-	ACTMath,
 	SATReadWrite,
 	SATMath,
 	ProgramEducation,
@@ -53,8 +49,8 @@ INSERT INTO Universities (
 	ProgramBusiness
 )
 VALUES 
-	('Top Tuition University', 'www.msu.edu', 'MI', 200000, 400000, 100000, 200000, 15, 6000, 0, 6000, 20, 35, 35, 35, 778, 778, 1000, 1000, 1000, 1000, 1000, 1000),
-	('Bottom Sill Not Bad University', 'www.osu.edu', 'OH', 1000, 2000, 500, 1000, 100, 20000, 100000, 20000, 99, 15, 15, 15, 334, 334, 10000, 2000, 2000, 1000, 1000, 4000);
+	('Top Tuition University', 'www.toptuition.edu', 'MI', 200000, 400000, 100000, 200000, 15, 6000, 0, 6000, 20, 35, 778, 778, 1000, 1000, 1000, 1000, 1000, 1000),
+	('Bottom Sill Not Bad University', 'www.osu.edu', 'OH', 1000, 2000, 500, 1000, 100, 20000, 100000, 20000, 99, 15, 334, 334, 10000, 2000, 2000, 1000, 1000, 4000);
 
 select * from Universities
 
