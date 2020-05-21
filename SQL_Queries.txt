@@ -117,4 +117,11 @@ WHERE (Website IS NULL
 OR NumBachelor IS NULL
 OR PercentAdmitted IS NULL
 OR GraduationRate IS NULL
-OR UndergradEnrollment IS NULL)
+OR UndergradEnrollment IS NULL
+OR UndergradEnrollment <= 50
+OR (ProgramEducation IS NULL 
+	AND ProgramEngineering IS NULL 
+	AND ProgramScience IS NULL
+	AND ProgramMath IS NULL
+	AND ProgramPhysicalScience IS NULL
+	AND ProgramBusiness IS NULL))
