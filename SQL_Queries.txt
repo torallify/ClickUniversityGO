@@ -111,3 +111,10 @@ USE [master]
 GO
 ALTER DATABASE ClickUniversityGoDB SET READ_WRITE 
 GO
+
+DELETE FROM Universities 
+WHERE (Website IS NULL
+OR NumBachelor IS NULL
+OR PercentAdmitted IS NULL
+OR GraduationRate IS NULL
+OR UndergradEnrollment IS NULL)
