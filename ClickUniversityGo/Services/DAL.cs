@@ -46,6 +46,15 @@ namespace ClickUniversityGo.Services
 
             return Universities;
         }
+        public IEnumerable<University> GetUniversityByMaxSAT(int score)
+        {
+            string queryString = "SELECT * FROM Universities WHERE (SATReadWrite + SATMath) <= @score";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { score = score });
+
+            conn.Close();
+
+            return Universities;
+        }
 
         public IEnumerable<University> GetUniversityByMaxCostOnCampusInState(int cost)
         {
@@ -56,16 +65,145 @@ namespace ClickUniversityGo.Services
 
             return Universities;
         }
+        public IEnumerable<University> GetUniversityByMaxCostOffCampusInState(int cost)
+        {
+            string queryString = "SELECT * FROM Universities WHERE CostOffCampusInState <= @cost";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { cost = cost });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByMaxCostOnCampusOutOfState(int cost)
+        {
+            string queryString = "SELECT * FROM Universities WHERE CostOnCampusOutOfState <= @cost";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { cost = cost });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByMaxCostOffCampusOutOfState(int cost)
+        {
+            string queryString = "SELECT * FROM Universities WHERE CostOffCampusOutOfState <= @cost";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { cost = cost });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByState(string state)
+        {
+            string queryString = "SELECT * FROM Universities WHERE State = @state";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { state = state });
+
+            conn.Close();
+
+            return Universities;
+        }
 
         public IEnumerable<University> GetUniversityByMaxPopulation(int pop)
         {
-            string queryString = "SELECT * FROM Universities WHERE ((NumBachelor/(GraduationRate/100)) * 4) <= @pop";
+            string queryString = "SELECT * FROM Universities WHERE UndergradEnrollment = @pop";
             IEnumerable<University> Universities = conn.Query<University>(queryString, new { pop = pop });
 
             conn.Close();
 
             return Universities;
         }
+        public IEnumerable<University> GetUniversityByPercentAdmitted(int percent)
+        {
+            string queryString = "SELECT * FROM Universities WHERE PercentAdmitted = @percent";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { percent = percent });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByNumBachelor(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE NumBachelor = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByNumAssociate(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE NumAssociate = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByGraduationRate(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE GraduationRate = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByProgramEducation(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE ProgramEducation = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByProgramBusiness(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE ProgramBusiness = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByProgramEngineering(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE ProgramEngineering = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByProgramScience(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE ProgramScience = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByProgramMath(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE ProgramMath = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+        public IEnumerable<University> GetUniversityByProgramPhysicalScience(int num)
+        {
+            string queryString = "SELECT * FROM Universities WHERE ProgramPhysicalScience = @num";
+            IEnumerable<University> Universities = conn.Query<University>(queryString, new { num = num });
+
+            conn.Close();
+
+            return Universities;
+        }
+
+
+
         // ************************ Favorites ********************
         public IEnumerable<Favorite> GetAllFavoritesByUserID(int id)
         {
