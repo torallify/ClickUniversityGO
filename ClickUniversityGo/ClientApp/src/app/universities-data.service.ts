@@ -4,7 +4,10 @@ import { University } from '../app/interfaces/university';
 
 @Injectable()
 export class UniversitiesDataService {
-  constructor(private http: HttpClient) { }
+  userID: string;
+  constructor(private http: HttpClient) {
+   
+  }
 
   getAllUniversities() {
     return this.http.get<University[]>('/api/university/')
