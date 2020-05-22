@@ -14,6 +14,8 @@ import { QandaDetailComponent } from './qanda-detail/qanda-detail.component';
 import { UniversitiesComponent } from './universities/universities.component';
 import { UniversityDetailComponent } from './university-detail/university-detail.component';
 import { UniversitiesDataService } from './universities-data.service';
+import { UserProfileComponent } from './user-profile/user-profile.component'
+import { UserProfileDataService } from './user-profile-data.service';
 import { FavoritesDataService } from './favorites-data.service';
 import { QandADataService } from './qanda-data.service';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
@@ -30,7 +32,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     QandaComponent,
     QandaDetailComponent,
     UniversitiesComponent,
-    UniversityDetailComponent
+    UniversityDetailComponent,
+    UserProfileComponent,
+    UserProfileDataService
 
   ],
   imports: [
