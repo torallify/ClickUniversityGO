@@ -44,7 +44,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'universities', component: UniversitiesComponent}
+      { path: 'universities', component: UniversitiesComponent },
+      { path: 'universities/:id', component: UniversitiesComponent }
+
       //{ path: 'counter', component: CounterComponent },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ])
