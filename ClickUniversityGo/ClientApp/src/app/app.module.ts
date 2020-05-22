@@ -34,7 +34,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     UniversitiesComponent,
     UniversityDetailComponent,
     UserProfileComponent,
-    UserProfileDataService
+    
 
   ],
   imports: [
@@ -55,7 +55,8 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
     UniversitiesDataService,
     FavoritesDataService,
-    QandADataService
+    QandADataService,
+    UserProfileDataService
   ],
   bootstrap: [AppComponent]
 })
