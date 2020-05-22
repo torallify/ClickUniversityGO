@@ -31,12 +31,12 @@ namespace ClickUniversityGo.Controllers
             return dal.GetAllUniversities();
         }
 
-        //// GET: api/University/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        // GET: api/University/5
+        [HttpGet("{id}")]
+        public University Get(int id)
+        {
+            return dal.GetUniversityByID(id);
+        }
 
         //// POST: api/University
         //[HttpPost]

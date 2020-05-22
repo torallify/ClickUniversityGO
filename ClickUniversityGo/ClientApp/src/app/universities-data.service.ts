@@ -10,4 +10,10 @@ export class UniversitiesDataService {
     return this.http.get<University[]>('/api/university/')
   }
 
+  getUniversity(id: number) {
+    return this.http.get<University>(`/api/university/ + ${id}`)
+  }
+
+  
+
 }
