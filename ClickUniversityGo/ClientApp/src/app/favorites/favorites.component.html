@@ -1,1 +1,10 @@
-﻿<div style="border: 1px solid red">favorites Component</div>
+<h2 class="heading">Favorites</h2>
+<div *ngFor="let f of favorites" class="heading">
+  <div>
+    University: {{f.universityName}} - {{f.state}}
+  </div>
+</div>
+
+<div *ngIf="favorites?.length==0">
+  <p>You currently have no favorites</p>
+</div>
