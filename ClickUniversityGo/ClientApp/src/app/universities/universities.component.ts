@@ -13,7 +13,7 @@ import { JoinedItem } from '../interfaces/favorite';
 export class UniversitiesComponent {
 /** universities ctor */
   universities: University[];
-
+  searchString: string;
 
   constructor(private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
@@ -29,5 +29,10 @@ export class UniversitiesComponent {
       },
       error => console.error(error)
     );
+  }
+
+  searchUniversity(university: string): boolean {
+
+    return university.toLowerCase().includes(this.searchString.toLowerCase());
   }
 }

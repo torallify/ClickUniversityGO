@@ -1,8 +1,15 @@
 <h1>All Universities Test</h1>
+
+<div>
+  <input type="text" placeholder="Search by university name" [(ngModel)]="searchString" size="30"/><br />
+</div>
+
 <div *ngFor="let university of universities">
-  <div>
-    {{university.universityName}}
-    {{university.state}}
-    <img src="https://logo.clearbit.com/{{university.website}}">
-  </div>
+  <ng-container *ngIf="searchUniversity(university.universityName)">
+    <div>
+      {{university.universityName}}
+      {{university.state}}
+      <img src="https://logo.clearbit.com/{{university.website}}">
+    </div>
+  </ng-container>
 </div>
