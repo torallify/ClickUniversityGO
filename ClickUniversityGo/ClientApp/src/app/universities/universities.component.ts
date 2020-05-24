@@ -13,13 +13,15 @@ import { JoinedItem } from '../interfaces/favorite';
 export class UniversitiesComponent {
 /** universities ctor */
   universities: University[];
-  searchString: string;
+  searchName: string;
+  searchStateInput: string;
+
 
   constructor(private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
 
   ngOnInit() {
-    this.searchString = "";
+    //this.searchString = "";
     this.get();
   }
 
@@ -34,6 +36,12 @@ export class UniversitiesComponent {
 
   searchUniversity(university: string): boolean {
 
-    return university.toLowerCase().includes(this.searchString.toLowerCase());
+    return university.toLowerCase().includes(this.searchName.toLowerCase());
   }
+
+  searchState(university: string): boolean {
+
+    return university.toLowerCase().includes(this.searchStateInput.toLowerCase());
+  }
+
 }
