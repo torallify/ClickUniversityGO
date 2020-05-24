@@ -22,7 +22,6 @@ export class UniversitiesComponent {
 
   ngOnInit() {
     this.searchName = "";
-    this.searchStateInput = "";
     this.get();
   }
 
@@ -42,7 +41,7 @@ export class UniversitiesComponent {
 
   searchState(university: string): boolean {
 
-    return university.toLowerCase().includes(this.searchStateInput.toLowerCase());
+    return university.includes(this.searchStateInput);
   }
 
 }

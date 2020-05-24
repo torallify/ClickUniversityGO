@@ -21,8 +21,9 @@
     <br />
     <!--<input type="text" placeholder="Search by State" [(ngModel)]="searchStateInput" size="30" />-->
 
-    <select [(ngModel)]="searchStateInput">
-      <option value="AL">Alabama</option>
+    <select [(ngModel)]="searchStateInput" style="width:200px">
+      
+      <option value="AL" selected>Alabama</option>
       <option value="AK">Alaska</option>
       <option value="AZ">Arizona</option>
       <option value="AR">Arkansas</option>
@@ -74,7 +75,7 @@
       <option value="WI">Wisconsin</option>
       <option value="WY">Wyoming</option>
     </select>
-
+    <br /><br />
     <div *ngFor="let university of universities">
 
       <ng-container *ngIf="searchState(university.state)">
