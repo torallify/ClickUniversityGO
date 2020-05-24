@@ -9,6 +9,8 @@
         <div>
           {{university.universityName}} - {{university.state}}
           <br />
+          <a href="{{university.website}}">{{university.website}}</a>
+          <br/>
           <img src="https://logo.clearbit.com/{{university.website}}">
         </div>
         <hr />
@@ -23,7 +25,7 @@
 
     <select [(ngModel)]="searchStateInput" style="width:200px">
       
-      <option value="AL" selected>Alabama</option>
+      <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
       <option value="AZ">Arizona</option>
       <option value="AR">Arkansas</option>
@@ -45,7 +47,7 @@
       <option value="ME">Maine</option>
       <option value="MD">Maryland</option>
       <option value="MA">Massachusetts</option>
-      <option value="MI">Michigan</option>
+      <option value="MI" selected>Michigan</option>
       <option value="MN">Minnesota</option>
       <option value="MS">Mississippi</option>
       <option value="MO">Missouri</option>
@@ -81,6 +83,8 @@
       <ng-container *ngIf="searchState(university.state)">
         <div>
           {{university.universityName}} - {{university.state}}
+          <br />
+          <a href="{{university.website}}">{{university.website}}</a>
           <br />
           <img src="https://logo.clearbit.com/{{university.website}}">
         </div>

@@ -44,4 +44,5 @@ export class UniversitiesComponent {
     return university.includes(this.searchStateInput);
   }
 
+
 }
