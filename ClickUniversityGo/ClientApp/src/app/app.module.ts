@@ -14,13 +14,16 @@ import { QandaDetailComponent } from './qanda-detail/qanda-detail.component';
 import { UniversitiesComponent } from './universities/universities.component';
 import { UniversityDetailComponent } from './university-detail/university-detail.component';
 import { UniversitiesDataService } from './universities-data.service';
-import { UserProfileComponent } from './user-profile/user-profile.component'
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserProfileDataService } from './user-profile-data.service';
 import { FavoritesDataService } from './favorites-data.service';
 import { QandADataService } from './qanda-data.service';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IgxTabsModule } from 'igniteui-angular';
+
 
 @NgModule({
   declarations: [
@@ -34,8 +37,6 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     UniversitiesComponent,
     UniversityDetailComponent,
     UserProfileComponent,
-    
-
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -49,7 +50,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 
       //{ path: 'counter', component: CounterComponent },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-    ])
+    ]),
+    BrowserAnimationsModule,
+    IgxTabsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
@@ -60,4 +63,6 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
+

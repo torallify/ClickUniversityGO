@@ -21,7 +21,8 @@ export class UniversitiesComponent {
     private favoriteData: FavoritesDataService) { }
 
   ngOnInit() {
-    //this.searchString = "";
+    this.searchName = "";
+    this.searchStateInput = "";
     this.get();
   }
 
