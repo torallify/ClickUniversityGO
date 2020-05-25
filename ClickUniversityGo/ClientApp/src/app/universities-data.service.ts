@@ -20,5 +20,19 @@ export class UniversitiesDataService {
   searchACT(id: number) {
     return this.http.get<University[]>(`/api/university/act/${id}`)
   }
-
+  searchSAT(id: number) {
+    return this.http.get<University[]>(`/api/university/sat/${id}`)
+  }
+  searchCostOnCampusInState(id: number) {
+    return this.http.get<University[]>(`/api/university/on-campus-in-state/${id}`)
+  }
+  searchCostOnCampusOutOfState(id: number) {
+    return this.http.get<University[]>(`/api/university/on-campus-out-of-state/${id}`)
+  }
+  searchCostOffCampusInState(id: number) {
+    return this.http.get<University[]>(`/api/university/off-campus-in-state/${id}`)
+  }
+  searchCostOffCampusOutOfState(id: number) {
+    return this.http.get<University[]>(`/api/university/off-campus-out-of-state/${id}`)
+  }
 }

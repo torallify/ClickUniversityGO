@@ -43,7 +43,42 @@ namespace ClickUniversityGo.Controllers
         {
             return dal.GetUniversityByMaxACT(id);
         }
+        [HttpGet("sat/{id}")]
+        public IEnumerable<University> getSAT(int id)
+        {
+            return dal.GetUniversityByMaxSAT(id);
+        }
+        [HttpGet("on-campus-in-state/{id}")]
+        public IEnumerable<University> GetCostOnCampusInState(int id)
+        {
+            return dal.GetUniversityByMaxCostOnCampusInState(id);
+        }
+        [HttpGet("on-campus-out-of-state/{id}")]
+        public IEnumerable<University> GetCostOnCampusOutOfState(int id)
+        {
+            return dal.GetUniversityByMaxCostOnCampusOutOfState(id);
+        }
+        [HttpGet("off-campus-in-state/{id}")]
+        public IEnumerable<University> GetCostOffCampusInState(int id)
+        {
+            return dal.GetUniversityByMaxCostOffCampusInState(id);
+        }
+        [HttpGet("off-campus-out-of-state/{id}")]
+        public IEnumerable<University> GetCostOffCampusOutOfState(int id)
+        {
+            return dal.GetUniversityByMaxCostOffCampusOutOfState(id);
+        }
 
+        [HttpGet("max-population/{id}")]
+        public IEnumerable<University> GetMaxPopulation(int id)
+        {
+            return dal.GetUniversityByMaxPopulation(id);
+        }
+        [HttpGet("max-population/{id}")]
+        public IEnumerable<University> GetPercentAdmitted(int id)
+        {
+            return dal.GetUniversityByMaxPopulation(id);
+        }
         //// POST: api/University
         //[HttpPost]
         //public void Post([FromBody] string value)

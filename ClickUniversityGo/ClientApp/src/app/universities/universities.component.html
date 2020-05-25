@@ -11,7 +11,7 @@
           <br />
           <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
           <br/>
-          <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university.website}}"></a>
+          <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university?.website}}"></a>
 </div>
         <hr />
       </ng-container>
@@ -94,22 +94,24 @@
     </div>
 
   </igx-tabs-group>
-  <igx-tabs-group label="By minimum ACT">
+  <igx-tabs-group label="By max ACT">
     <br />
-    <input type="text" placeholder="Search by minimum ACT score" [(ngModel)]="searchActInput" size="30" /> <button (click)="searchMaxACT()">Search</button>
+    <!--<input type="text" placeholder="Search by Name" [(ngModel)]="searchName" size="30" /><br /><br />-->
+    <input type="text" placeholder="Search by max ACT score" [(ngModel)]="searchActInput" size="30" /> <button (click)="searchMaxACT()">Search</button>
     <br />
     <div *ngFor="let university of actTest">
-      
-      <div>
-        {{university.universityName}} - {{university.state}}
-        <br />
-        
-        <a href="https://{{university.website}}"  target="_blank">{{university.website}}</a>
-        <br />
-        <img src="https://logo.clearbit.com/{{university.website}}">
-      </div>
+      <ng-container *ngIf="searchUniversity(university.universityName)">
+        <div>
+          {{university.universityName}} - {{university.state}}
+          <br />
+
+          <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
+          <br />
+          <img src="https://logo.clearbit.com/{{university.website}}">
+        </div>
         <hr />
-      
+      </ng-container>
+
     </div>
     <br />
   </igx-tabs-group>
