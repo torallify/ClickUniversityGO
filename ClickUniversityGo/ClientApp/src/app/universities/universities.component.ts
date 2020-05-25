@@ -22,6 +22,7 @@ export class UniversitiesComponent {
 
   ngOnInit() {
     this.searchName = "";
+    this.searchStateInput = "MI";
     this.get();
   }
 
