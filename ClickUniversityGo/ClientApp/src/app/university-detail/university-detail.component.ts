@@ -38,10 +38,6 @@ export class UniversityDetailComponent {
       error => console.error(error))
       }
 
-  //getUniversity(id: number): University {
-  //  this.universityData.getUniversity(id).subscribe(
-  //    (data: University) => this.university = { ...data },
-  //    error => console.error(error))
-  //}
+
 
 }
