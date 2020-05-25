@@ -3,126 +3,126 @@ AS
 SELECT *
 FROM Universities
 
-
+GO
 CREATE PROCEDURE GetUniversityByID @id NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE ID = @id
 
-
+GO
 CREATE PROCEDURE GetUniversityByMaxACT @ACTComposite NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE ACTComposite <= @aCTComposite
 
-
+GO
 CREATE PROCEDURE GetUniversityByMaxSAT @SATComposite NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE (SATMath + SATReadWrite) <= @SATComposite
 
-
+GO
 CREATE PROCEDURE GetUniversityByMaxCostOnCampusInState @CostOnCampusInState NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE CostOnCampusInState <= @CostOnCampusInState
 
-
+GO
 CREATE PROCEDURE GetUniversityByMaxCostOnCampusOutOfState @CostOnCampusOutOfState NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE CostOnCampusOutOfState <= @CostOnCampusOutOfState
 
-
+GO
 CREATE PROCEDURE GetUniversityByMaxCostOffCampusInState @CostOffCampusInState NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE CostOffCampusInState <= @CostOffCampusInState
 
-
+GO
 CREATE PROCEDURE GetUniversityByMaxCostOffCampusOutOfState @CostOffCampusOutOfState NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE CostOffCampusOutOfState <= @CostOffCampusOutOfState
 
-
+GO
 CREATE PROCEDURE GetUniversitiesByState @State NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE State = @State
 
-
+GO
 CREATE PROCEDURE GetUniversityByMaxPopulation @UndergradEnrollment NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE UndergradEnrollment <= @UndergradEnrollment
 
-
+GO
 CREATE PROCEDURE GetUniversityByPercentAdmitted @PercentAdmitted NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE PercentAdmitted <= @PercentAdmitted
 
-
+GO
 CREATE PROCEDURE GetUniversityByNumBachelor @NumBachelor NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE NumBachelor <= @NumBachelor
 
-
+GO
 CREATE PROCEDURE GetUniversityByNumAssociate @NumAssociate NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE NumAssociate <= @NumAssociate
 
-
+GO
 CREATE PROCEDURE GetUniversityByGraduationRate @GraduationRate NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE GraduationRate <= @GraduationRate
 
-
+GO
 CREATE PROCEDURE GetUniversityByProgramEducation @ProgramEducation NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE ProgramEducation <= @ProgramEducation
 
-
+GO
 CREATE PROCEDURE GetUniversityByProgramBusiness @ProgramBusiness NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE ProgramBusiness <= @ProgramBusiness
 
-
+GO
 CREATE PROCEDURE GetUniversityByProgramScience @ProgramScience NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE ProgramScience <= @ProgramScience
 
-
+GO
 CREATE PROCEDURE GetUniversityByProgramMath @ProgramMath NVARCHAR(10)
 AS
 SELECT *
 FROM Universities
 WHERE ProgramMath <= @ProgramMath
 
-
+GO
 CREATE PROCEDURE GetUniversityByProgramPhysicalScience @ProgramPhysicalScience NVARCHAR(10)
 AS
 SELECT *
@@ -133,24 +133,25 @@ WHERE ProgramPhysicalScience <= @ProgramPhysicalScience
 ---------------------------------------------------------------------------------------------------
 ------------------------------- Favorites Stored Procedures ---------------------------------------
 ---------------------------------------------------------------------------------------------------
+GO
 CREATE PROCEDURE GetAllFavoritesByUserID @UserID NVARCHAR(10)
 AS
 SELECT *
 FROM Favorites
 WHERE UserID = @UserID
 
-
+GO
 CREATE PROCEDURE AddToFavorites (@userID NVARCHAR(10), @universityID NVARCHAR(10))
 AS
 INSERT INTO Favorites (UserID, UniversityID) 
 VALUES (@userID, @universityID)
 
-
+GO
 CREATE PROCEDURE RemoveFromFavorites @id NVARCHAR(10)
 AS
 DELETE FROM Favorites WHERE ID = @id
 
-
+GO
 CREATE PROCEDURE GetAllFavorites @id NVARCHAR(10)
 AS
 SELECT 
@@ -165,27 +166,27 @@ WHERE FAV.UserID = @id
 ---------------------------------------------------------------------------------------------------
 ----------------------------------- Q & A Stored Procedures ---------------------------------------
 ---------------------------------------------------------------------------------------------------
-
+GO
 CREATE PROCEDURE GetAllQuestions
 AS
 SELECT *
 FROM Questions
 
-
+GO
 CREATE PROCEDURE GetQuestionByID @id NVARCHAR(10)
 AS
 SELECT *
 FROM Questions
 WHERE ID = @id
 
-
+GO
 CREATE PROCEDURE GetQuestionsByUserName @UserName NVARCHAR(10)
 AS
 SELECT *
 FROM Questions
 WHERE UserName = @UserName
 
-
+GO
 CREATE PROCEDURE GetQuestionsByPostedASC @Date NVARCHAR(10)
 AS
 SELECT *
@@ -193,7 +194,7 @@ FROM Questions
 WHERE Posted = @Date
 Order By Posted ASC
 
-
+GO
 CREATE PROCEDURE GetQuestionsByPostedDESC @Date NVARCHAR(10)
 AS
 SELECT *
@@ -201,14 +202,14 @@ FROM Questions
 WHERE Posted = @Date
 Order By Posted DESC
 
-
+GO
 CREATE PROCEDURE GetQuestionsByCategory @Category NVARCHAR(10)
 AS
 SELECT *
 FROM Questions
 WHERE Category = @Category
 
-
+GO
 CREATE PROCEDURE GetAnswersByQuestionId @QuestionId NVARCHAR(10)
 AS
 SELECT *
@@ -219,13 +220,13 @@ WHERE QuestionId = @QuestionId
 ---------------------------------------------------------------------------------------------------
 ----------------------------------- UserProfile Stored Procedures ---------------------------------------
 ---------------------------------------------------------------------------------------------------
-
+GO
 CREATE PROCEDURE GetAllUsers
 AS
 SELECT *
 FROM UserProfiles
 
-
+GO
 CREATE PROCEDURE GetUserById @UserID NVARCHAR(10)
 AS
 SELECT *
