@@ -14,11 +14,11 @@ export class UniversitiesDataService {
   }
 
   getUniversity(id: number) {
-    return this.http.get<University>(`/api/university/ + ${id}`)
+    return this.http.get<University>(`/api/university/${id}`)
   }
 
   searchACT(id: number) {
-    return this.http.get<University[]>(`/api/university/act/ + ${id}`)
+    return this.http.get<University[]>(`/api/university/act/${id}`)
   }
 
 }

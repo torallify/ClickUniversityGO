@@ -36,6 +36,7 @@ export class UniversityDetailComponent {
     return this.universityData.getUniversity(id).subscribe(
       (data: University) => this.university = { ...data },
       error => console.error(error))
+    console.log("Name: " + this.university.universityName)
       }
 
 
