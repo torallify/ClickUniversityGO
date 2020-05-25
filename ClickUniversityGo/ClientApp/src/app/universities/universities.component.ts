@@ -24,6 +24,7 @@ export class UniversitiesComponent {
   ngOnInit() {
     this.searchName = "";
     this.searchStateInput = "MI";
+
     this.get();
   }
 
@@ -46,7 +47,7 @@ export class UniversitiesComponent {
     return university.includes(this.searchStateInput);
   }
 
-  searchMaxACT() {
+  searchMaxACT(): any {
     
     this.universityData.searchACT(this.searchActInput).subscribe(
       (data: University[]) => {
