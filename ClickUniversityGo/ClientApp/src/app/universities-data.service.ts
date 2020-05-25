@@ -17,6 +17,8 @@ export class UniversitiesDataService {
     return this.http.get<University>(`/api/university/ + ${id}`)
   }
 
-  
+  searchACT(id: number) {
+    return this.http.get<University[]>(`/api/university/act/ + ${id}`)
+  }
 
 }

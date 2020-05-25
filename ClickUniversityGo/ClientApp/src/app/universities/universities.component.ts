@@ -13,15 +13,17 @@ import { JoinedItem } from '../interfaces/favorite';
 export class UniversitiesComponent {
 /** universities ctor */
   universities: University[];
+  actTest: University[];
   searchName: string;
   searchStateInput: string;
-
+  searchActInput: number;
 
   constructor(private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
 
   ngOnInit() {
     this.searchName = "";
+    this.searchStateInput = "MI";
     this.get();
   }
 
@@ -44,5 +46,13 @@ export class UniversitiesComponent {
     return university.includes(this.searchStateInput);
   }
 
-
+  searchMaxACT() {
+    
+    this.universityData.searchACT(this.searchActInput).subscribe(
+      (data: University[]) => {
+        this.actTest = data;
+      },
+      error => console.error(error)
+    );
+  }
 }
