@@ -11,8 +11,8 @@
           <br />
           <a href="{{university.website}}">{{university.website}}</a>
           <br/>
-          <img src="https://logo.clearbit.com/{{university.website}}">
-        </div>
+          <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university.website}}"></a>
+</div>
         <hr />
       </ng-container>
     </div>
@@ -85,6 +85,7 @@
           {{university.universityName}} - {{university.state}}
           <br />
           <a href="{{university.website}}">{{university.website}}</a>
+          
           <br />
           <img src="https://logo.clearbit.com/{{university.website}}">
         </div>
