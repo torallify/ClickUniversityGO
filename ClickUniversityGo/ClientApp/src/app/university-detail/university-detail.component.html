@@ -1,6 +1,33 @@
-<div style="border: 1px solid red">
-  Name: {{university?.universityName}}
+<div style="border: 1px solid black">
+  <strong>{{university?.universityName}}</strong><br />
+  <img src="https://logo.clearbit.com/{{university.website}}"><br />
+  <a href="${university.website}">{{university.website}}</a><br />
+  <strong>Costs</strong><br />
+  Cost On Campus for In-State:  {{university?.costOnCampusInState | currency}}<br />
+  Cost On Campus Out-Of-State: {{university?.costOnCampusOutOfState | currency}}<br />
+  Cost Off Campus for In-State: {{university?.costOffCampusInState | currency}}<br />
+  Cost Off Campus Out-of-State: {{university?.costOffCampusOutOfState | currency}}<br />
+  <br />
+  <strong>Class Sizes</strong><br />
+  Undergraduate Class size:  {{university?.undergradEnrollment}}  <br />
+  Education Program:  {{university?.programEducation}}  <br />
+  Engineering Program:  {{university?.programEngineering}}  <br />
+  Science Program:  {{university?.programScience}}  <br />
+  Physical Science Program:  {{university?.programPhysicalScience}}  <br />
+  Math Program:  {{university?.programMath}}  <br />
+  Business Program: {{university?.programBusiness}}<br />
+  <br />
+  Associate Degrees: {{university?.numAssociate}}<br />
+  Bachelor Degrees: {{university?.numAssociate}}<br />
+  <br />
+  Percent Admitted: {{university?.percentAdmitted}}<br />
+  Average ACT Score: {{university?.aCTComposite}}
+  SAT Scores:<br />
+             <p style="margin-left: 40px">
+               Read/Write: {{university?.sATReadWrite}}<br />
+               Math: {{university?.sATMath}}
+             </p>
 </div>
 <div>
-  Cost On Campus: {{university?.costOnCampusInState}}
+ 
 </div>
