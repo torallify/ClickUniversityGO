@@ -38,6 +38,12 @@ namespace ClickUniversityGo.Controllers
             return dal.GetUniversityByID(id);
         }
 
+        [HttpGet("act/{id}")]
+        public IEnumerable<University> GetACT(int id)
+        {
+            return dal.GetUniversityByMaxACT(id);
+        }
+
         //// POST: api/University
         //[HttpPost]
         //public void Post([FromBody] string value)

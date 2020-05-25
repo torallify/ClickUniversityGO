@@ -94,7 +94,24 @@
     </div>
 
   </igx-tabs-group>
-  <igx-tabs-group label="Tab 3">This is Tab 3 content.</igx-tabs-group>
+  <igx-tabs-group label="By max ACT">
+    <input type="text" placeholder="Search by Name" [(ngModel)]="searchActInput" size="30" /><br />
+    <button (click)="searchMaxAct()">Search</button>
+
+    <div *ngFor="let university of actTest">
+      
+        <div>
+          {{university.universityName}} - {{university.state}}
+          <br />
+          <a href="{{university.website}}">{{university.website}}</a>
+          <br />
+          <img src="https://logo.clearbit.com/{{university.website}}">
+        </div>
+        <hr />
+      
+    </div>
+    <br />
+  </igx-tabs-group>
   <igx-tabs-group label="Tab 4">This is Tab 4 content.</igx-tabs-group>
   <igx-tabs-group label="Tab 5">This is Tab 5 content.</igx-tabs-group>
 </igx-tabs>
