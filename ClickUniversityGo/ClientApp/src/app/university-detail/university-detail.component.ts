@@ -3,7 +3,7 @@ import { UniversitiesDataService } from '../universities-data.service';
 import { FavoritesDataService } from '../favorites-data.service';
 import { University } from '../interfaces/university';
 import { JoinedItem } from '../interfaces/favorite';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 
@@ -19,10 +19,10 @@ export class UniversityDetailComponent {
   university: University;
   @Input() ref: string;
   @Input() id: number;
-  route: any;
+  
 
 
-  constructor(private universityData: UniversitiesDataService,
+  constructor(private universityData: UniversitiesDataService, public route: ActivatedRoute,
     private favoriteData: FavoritesDataService) { }
 
   ngOnInit(): void {
