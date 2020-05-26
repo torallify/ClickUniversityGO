@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClickUniversityGo.Models;
+using ClickUniversityGo.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace ClickUniversityGo.Controllers
 {
@@ -11,19 +14,42 @@ namespace ClickUniversityGo.Controllers
     [ApiController]
     public class QandAController : ControllerBase
     {
-        //// GET: api/QandA
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        IConfiguration ConfigRoot;
+        private DAL dal;
 
-        //// GET: api/QandA/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        public QandAController(IConfiguration config)
+        {
+            ConfigRoot = config;
+            dal = new DAL(ConfigRoot.GetConnectionString("DefaultConnection"));
+        }
+
+        // GET: api/QandA
+        [HttpGet]
+        public IEnumerable<Question> GetAllQuestions()
+        {
+            return dal.GetAllQuestions();
+        }
+
+        // GET: api/QandA/5
+        [HttpGet("{id}")]
+        public Question GetQuestionByID(int id)
+        {
+            return dal.GetQuestionByID(id);
+        }
+
+        // GET: api/QandA/UserName
+        [HttpGet("{UserName}")]
+        public IEnumerable<Question> GetQuestionsByUserName(string userName)
+        {
+            return dal.GetQuestionsByUserName(userName);
+        }
+
+        [HttpGet("{Category}")]
+        public IEnumerable<Question> GetQuestionsByCategory(string category)
+        {
+            return dal.GetQuestionsByCategory(category);
+        }
+
 
         //// POST: api/QandA
         //[HttpPost]
