@@ -44,10 +44,10 @@ CREATE TABLE Favorites (
 ------------------- Question & Answers ------------------------
 ---------------------------------------------------------------
 CREATE TABLE Answers(
-	Id INT IDENTITY(1,1) NOT NULL,
-	UserName NVARCHAR (500) NOT NULL,
+	ID INT IDENTITY(1,1) NOT NULL,
+	Email NVARCHAR (500) NOT NULL,
 	Detail NVARCHAR (4000) NOT NULL,
-	QuestionId INT NOT NULL,
+	QuestionID INT NOT NULL,
 	Posted DATETIME NOT NULL,
 	Upvotes INT NOT NULL,
  CONSTRAINT PK_Answers PRIMARY KEY CLUSTERED 
@@ -57,8 +57,8 @@ CREATE TABLE Answers(
 ) ON [PRIMARY]
 
 CREATE TABLE Questions(
-	Id INT IDENTITY(1000,1) NOT NULL,
-	UserName NVARCHAR(30) NOT NULL,
+	ID INT IDENTITY(1000,1) NOT NULL,
+	Email NVARCHAR(30) NOT NULL,
 	Title NVARCHAR(200) NOT NULL,
 	Detail NVARCHAR(4000) NOT NULL,
 	Posted DATETIME NOT NULL,
