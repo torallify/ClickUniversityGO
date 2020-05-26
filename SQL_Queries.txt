@@ -25,39 +25,8 @@ CREATE TABLE Universities (
 	ProgramBusiness INT,
 );
 
-INSERT INTO Universities (
-	UniversityName,
-	Website,
-	State,
-	CostOnCampusInState,
-	CostOnCampusOutOfState,
-	CostOffCampusInState,
-	CostOffCampusOutOfState,
-	PercentAdmitted,
-	UndergradEnrollment,
-	NumAssociate,
-	NumBachelor,
-	GraduationRate,
-	ACTComposite,
-	SATReadWrite,
-	SATMath,
-	ProgramEducation,
-	ProgramEngineering,
-	ProgramScience,
-	ProgramMath,
-	ProgramPhysicalScience,
-	ProgramBusiness
-)
-VALUES 
-	('Top Tuition University', 'www.toptuition.edu', 'MI', 200000, 400000, 100000, 200000, 15, 6000, 0, 6000, 20, 35, 778, 778, 1000, 1000, 1000, 1000, 1000, 1000),
-	('Bottom Sill Not Bad University', 'www.osu.edu', 'OH', 1000, 2000, 500, 1000, 100, 20000, 100000, 20000, 99, 15, 334, 334, 10000, 2000, 2000, 1000, 1000, 4000);
-
-select * from Universities
-
 CREATE TABLE UserProfiles (
 	ID INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	UserID NVARCHAR(450) NOT NULL FOREIGN KEY REFERENCES AspNetUsers(Id),
-	UserName NVARCHAR (500),
 	Email NVARCHAR (256),
 	HomeState NVARCHAR (50),
 	ACTScore INT,
