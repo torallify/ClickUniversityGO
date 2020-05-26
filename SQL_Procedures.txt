@@ -234,7 +234,7 @@ FROM UserProfiles
 WHERE UserID = UserID
 
 GO
-CREATE PROCEDURE AddUserProfile (@UserName NVARCHAR (500), @Email NVARCHAR (256), @HomeState NVARCHAR (50), @ACTScore INT, @SATScore INT, @DesiredState NVARCHAR (50))
+CREATE PROCEDURE AddUserProfile (@Email NVARCHAR (256), @HomeState NVARCHAR (50), @ACTScore INT, @SATScore INT, @DesiredState NVARCHAR (50))
 AS
 INSERT INTO UserProfiles (Email, HomeState, ACTScore, SATScore, DesiredState)
 VALUES (@Email, @HomeState, @ACTScore, @SATScore, @DesiredState)

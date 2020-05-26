@@ -16,7 +16,7 @@ export class UserProfileComponent implements OnInit {
   public userName: Observable<string>;
 
   constructor(private authorizeService: AuthorizeService, private userProfileData: UserProfileDataService) { }
-  newUserName: string;
+  //newUserName: string;
   newEmail: string;
   newHomeState: string;
   newACTScore: number;
@@ -32,14 +32,15 @@ export class UserProfileComponent implements OnInit {
     // map(u => u && u.name),
     // tap(u => this.newUserName = u))
     //;
+    this.authorizeService.getUser().subscribe(user => this.newEmail = user.name);
 
     //this.userID.subscribe(id => { console.log({ id }) });
 
   }
   async addNewUser() {
-    await this.userProfileData.addNewUser({userName: this.newUserName, email: this.newEmail, homeState: this.newHomeState, aCTScore: this.newACTScore, sATScore: this.newSATScore, desiredState: this.newDesiredState } as UserProfile)
-    this.newUserName = ""
-    this.newEmail = ""
+    await this.userProfileData.addNewUser({email: this.newEmail, homeState: this.newHomeState, aCTScore: this.newACTScore, sATScore: this.newSATScore, desiredState: this.newDesiredState } as UserProfile)
+    //this.newUserName = ""
+    //this.newEmail = ""
     this.newHomeState = ""
     this.newACTScore = null
     this.newSATScore = null
