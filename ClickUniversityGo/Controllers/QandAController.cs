@@ -53,7 +53,7 @@ namespace ClickUniversityGo.Controllers
 
         // POST: api/QandA
         [HttpPost]
-        public int Post(Question q)
+        public int AddNewQuestion(Question q)
         {
             int result = dal.PostQuestion(q);
             return result;
