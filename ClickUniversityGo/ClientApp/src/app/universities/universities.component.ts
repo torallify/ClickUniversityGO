@@ -73,24 +73,6 @@ export class UniversitiesComponent {
     );
   }
 
-  //search(SAT: any, ACT: any): any {
-
-  //  this.universityData.searchSAT(SAT).subscribe(
-  //    (data: University[]) => {
-  //      this.combined = data;
-  //    },
-  //    error => console.error(error)
-  //  );
-
-  //  this.universityData.searchACT(ACT).subscribe(
-  //    (data: University[]) => {
-  //      this.combined = data;
-  //    },
-  //    error => console.error(error)
-  //  );
-
-  //}
-
   search(SAT: any, ACT: any): any {
     if (((SAT != null) && (SAT != ""))
       && ((ACT != null) && (ACT != ""))) {
@@ -98,8 +80,8 @@ export class UniversitiesComponent {
         (data: University[]) => {
           this.satMatchedUniversities = data;
           console.log(this.satMatchedUniversities);
-          let a = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
-          console.log("combined result " + a);
+          this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
+          console.log(this.satMatchedUniversities);
         },
         error => console.error(error)
       );

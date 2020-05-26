@@ -191,13 +191,13 @@
     </div>
     <br />
   </igx-tabs-group>
-  <igx-tabs-group label="Tab 5">
+  <igx-tabs-group label="Combined SAT/ACT search">
 
     <input type="text" placeholder="Search by max SAT score" [(ngModel)]="searchSatInput" size="30" />
     <input type="text" placeholder="Search by max ACT score" [(ngModel)]="searchActInput" size="30" />
     <button (click)="search(searchSatInput, searchActInput)">Search</button>
     <br />
-    <div *ngFor="let university of combined">
+    <div *ngFor="let university of satMatchedUniversities">
 
       <div>
         {{university.universityName}} - {{university.state}}
