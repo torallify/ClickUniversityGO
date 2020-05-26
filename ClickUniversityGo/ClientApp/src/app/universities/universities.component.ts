@@ -68,4 +68,14 @@ export class UniversitiesComponent {
       error => console.error(error)
     );
   }
+
+  searchACTSAT(): any {
+
+    this.universityData.searchSAT(this.searchSatInput).subscribe(
+      (data: University[]) => {
+        this.satTest = data;
+      },
+      error => console.error(error)
+    );
+  }
 }
