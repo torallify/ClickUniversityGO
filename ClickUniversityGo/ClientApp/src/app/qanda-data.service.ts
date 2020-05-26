@@ -7,6 +7,9 @@ export class QandADataService {
   constructor(private http: HttpClient) {
 
   }
+  async getQuestions() {
+    return this.http.get<Question[]>('/api/QandA').toPromise();
+  }
   async addNewQuestion(question: Partial<Question>) {
 
     return this.http.post<number>('/api/QandA', question).toPromise();
