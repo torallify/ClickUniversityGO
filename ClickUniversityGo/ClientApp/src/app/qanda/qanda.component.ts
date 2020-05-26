@@ -4,6 +4,7 @@ import { QandADataService} from '../qanda-data.service';
 import {Question, Answer } from '../interfaces/qandA';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-qanda',
@@ -19,7 +20,7 @@ export class QandaComponent implements OnInit {
   //newUserName: string;
   newEmail: string;
   newTitle: string;
-  newDetail: number;
+  newDetail: string;
   newPosted: Date;
   newCategory: string;
   newTags: string;
@@ -43,7 +44,7 @@ export class QandaComponent implements OnInit {
     await this.qandAData.addNewQuestion({ email: this.newEmail, title: this.newTitle, detail: this.newDetail, posted: this.newPosted, category: this.newCategory, tags: this.newTags, status: this.newStatus } as Question)
 
     this.newTitle = ""
-    this.newDetail = null
+    this.newDetail = ""
     this.newPosted = null
     this.newCategory = ""
     this.newTags = ""

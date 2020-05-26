@@ -485,8 +485,8 @@ namespace ClickUniversityGo.Services
 
         public int PostQuestion(Question q)
         {
-            //q.Posted = DateTime.Now;
-            //q.Status = 1;
+            q.Posted = DateTime.Now;
+            q.Status = 1;
             string addString = "Insert Into Questions (Email, Title, Detail, Posted, Category, Tags, Status) ";
             addString += "Values (@Email, @Title, @Detail, @Posted, @Category, @Tags, @Status)";
             return conn.Execute(addString, q);

@@ -9,6 +9,6 @@ export class QandADataService {
   }
   async addNewQuestion(question: Partial<Question>) {
 
-    return this.http.post<number>('/api/question', question).toPromise();
+    return this.http.post<number>('/api/QandA', question).toPromise();
   }
 }
