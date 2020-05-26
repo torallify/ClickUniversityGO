@@ -597,6 +597,15 @@ namespace ClickUniversityGo.Services
 
 
         // ************************ User Profiles ********************\
+        public int AddUserProfile(UserProfile newUserProfile)
+        {
+            string command = "INSERT INTO UserProfiles (UserName, Email, HomeState, ACTScore, SATScore, DesiredState) ";
+            command += "VALUES (@UserName, @Email, @HomeState, @ACTScore, @SATScore, @DesiredState) ";
+
+            conn.Close();
+
+            return conn.Execute(command, newUserProfile);
+        }
 
         //public IEnumerable<UserProfile> GetAllUsers()
         //{

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ClickUniversityGo.Models;
+using ClickUniversityGo.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace ClickUniversityGo.Controllers
 {
@@ -11,6 +14,14 @@ namespace ClickUniversityGo.Controllers
     [ApiController]
     public class UserProfileController : ControllerBase
     {
+        IConfiguration ConfigRoot;
+        private DAL dal;
+
+        public UserProfileController(IConfiguration config)
+        {
+            ConfigRoot = config;
+            dal = new DAL(ConfigRoot.GetConnectionString("DefaultConnection"));
+        }
         //// GET: api/UserProfile
         //[HttpGet]
         //public IEnumerable<string> Get()
@@ -26,10 +37,12 @@ namespace ClickUniversityGo.Controllers
         //}
 
         //// POST: api/UserProfile
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
+        [HttpPost]
+        public int AddUserProfile(UserProfile newUserProfile)
+        {
+            int result = dal.AddUserProfile(newUserProfile);
+            return result;
+        }
 
         //// PUT: api/UserProfile/5
         //[HttpPut("{id}")]
