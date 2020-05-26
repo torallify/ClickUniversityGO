@@ -599,8 +599,8 @@ namespace ClickUniversityGo.Services
         // ************************ User Profiles ********************\
         //public int AddUserProfile(UserProfile newUserProfile)
         //{
-        //    string command = "INSERT INTO UserProfiles (UserName, Email, HomeState, ACTScore, SATScore, DesiredState) ";
-        //    command += "VALUES (@UserName, @Email, @HomeState, @ACTScore, @SATScore, @DesiredState) ";
+        //    string command = "INSERT INTO UserProfiles (Email, HomeState, ACTScore, SATScore, DesiredState) ";
+        //    command += "VALUES (@Email, @HomeState, @ACTScore, @SATScore, @DesiredState) ";
 
         //    conn.Close();
 
@@ -609,7 +609,7 @@ namespace ClickUniversityGo.Services
 
         public int AddUserProfile(UserProfile newUserProfile)
         {
-            string command = "EXEC AddUserProfile @UserName, @Email, @HomeState, @ACTScore, @SATScore, @DesiredState";
+            string command = "EXEC AddUserProfile @Email, @HomeState, @ACTScore, @SATScore, @DesiredState";
 
             conn.Close();
 
