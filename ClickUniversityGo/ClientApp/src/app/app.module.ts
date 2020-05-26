@@ -47,7 +47,7 @@ import { IgxTabsModule } from 'igniteui-angular';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'universities', component: UniversitiesComponent },
       { path: 'universities/:id', component: UniversityDetailComponent },
-      { path: 'userProfile', component: UserProfileComponent}
+      { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthorizeGuard] }
 
       //{ path: 'counter', component: CounterComponent },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
