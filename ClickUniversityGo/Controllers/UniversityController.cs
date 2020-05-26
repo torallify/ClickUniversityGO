@@ -37,7 +37,11 @@ namespace ClickUniversityGo.Controllers
         {
             return dal.GetUniversityByID(id);
         }
-
+        [HttpGet("state/{state}")]
+        public IEnumerable<University> GetByState(string state)
+        {
+            return dal.GetUniversityByState(state);
+        }
         [HttpGet("act/{id}")]
         public IEnumerable<University> GetACT(int id)
         {

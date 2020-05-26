@@ -14,9 +14,11 @@ export class UniversitiesComponent {
 /** universities ctor */
   universities: University[];
   actTest: University[];
+  satTest: University[];
   searchName: string;
   searchStateInput: string;
   searchActInput: number;
+  searchSatInput: number;
 
   constructor(private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
@@ -52,6 +54,16 @@ export class UniversitiesComponent {
     this.universityData.searchACT(this.searchActInput).subscribe(
       (data: University[]) => {
         this.actTest = data;
+      },
+      error => console.error(error)
+    );
+  }
+
+  searchMaxSAT(): any {
+
+    this.universityData.searchSAT(this.searchSatInput).subscribe(
+      (data: University[]) => {
+        this.satTest = data;
       },
       error => console.error(error)
     );

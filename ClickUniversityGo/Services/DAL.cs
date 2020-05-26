@@ -173,6 +173,7 @@ namespace ClickUniversityGo.Services
         //public IEnumerable<University> GetUniversityByState(string state)
         //{
         //    string queryString = "SELECT * FROM Universities WHERE State = @state";
+        //    //state = $"'{state}'";
         //    IEnumerable<University> Universities = conn.Query<University>(queryString, new { state = state });
 
         //    conn.Close();
@@ -182,7 +183,7 @@ namespace ClickUniversityGo.Services
 
         public IEnumerable<University> GetUniversityByState(string state)
         {
-            string queryString = "EXEC GetUniversityByState @State";
+            string queryString = "EXEC GetUniversitiesByState @State";
             IEnumerable<University> UniversityByState = conn.Query<University>(queryString, new { State = state });
 
             conn.Close();

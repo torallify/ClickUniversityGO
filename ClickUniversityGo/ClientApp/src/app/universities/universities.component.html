@@ -115,7 +115,27 @@
     </div>
     <br />
   </igx-tabs-group>
-  <igx-tabs-group label="Tab 4">This is Tab 4 content.</igx-tabs-group>
+  <igx-tabs-group label="By Max SAT">
+    <br />
+    <!--<input type="text" placeholder="Search by Name" [(ngModel)]="searchName" size="30" /><br /><br />-->
+    <input type="text" placeholder="Search by max SAT score" [(ngModel)]="searchSatInput" size="30" /> <button (click)="searchMaxSAT()">Search</button>
+    <br />
+    <div *ngFor="let university of satTest">
+      <ng-container *ngIf="searchUniversity(university.universityName)">
+        <div>
+          {{university.universityName}} - {{university.state}}
+          <br />
+
+          <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
+          <br />
+          <img src="https://logo.clearbit.com/{{university.website}}">
+        </div>
+        <hr />
+      </ng-container>
+
+    </div>
+    <br />
+  </igx-tabs-group>
   <igx-tabs-group label="Tab 5">This is Tab 5 content.</igx-tabs-group>
 </igx-tabs>
 <div>
