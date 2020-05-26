@@ -55,6 +55,7 @@ namespace ClickUniversityGo.Controllers
         //[HttpPost]
         //public void Post([FromBody] string value)
         //{
+        //    return dal.PostQuestion();
         //}
 
         //// PUT: api/QandA/5

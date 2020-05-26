@@ -483,6 +483,25 @@ namespace ClickUniversityGo.Services
 
         // ************************ Q and A ********************
 
+        public int PostQuestion(Question q)
+        {
+            q.Posted = DateTime.Now;
+            q.Status = 1;
+            string addString = "Insert Into Questions (Email, Title, Detail, Posted, Category, Tags, Status) ";
+            addString += "Values (@Email, @Title, @Detail, @Posted, @Category, @Tags, @Status)";
+            return conn.Execute(addString, q);
+        }
+
+        internal int CreateAnswer(Answer ans)
+        {
+            ans.Posted = DateTime.Now;
+            ans.Upvotes = 0;
+
+            string addQuery = "Insert Into Answers (Email, Detail, QuestionId, Posted, Upvotes) ";
+            addQuery += "values (@Email, @Detail, @QuestionId, @Posted, @Upvotes)";
+            return conn.Execute(addQuery, ans);
+        }
+
         //public IEnumerable<Question> GetAllQuestions()
         //{
         //    string queryString = "SELECT * FROM Questions";

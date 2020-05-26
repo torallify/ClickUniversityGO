@@ -1,6 +1,6 @@
 export interface Answer {
   id: number;
-  userName: string;
+  email: string;
   detail: string;
   questionId: number;
   posted: Date;
@@ -10,7 +10,7 @@ export interface Answer {
 
 export interface Question {
   id: number;
-  userName: string;
+  email: string;
   title: string;
   detail: string;
   posted: Date;
