@@ -22,12 +22,13 @@ namespace ClickUniversityGo.Controllers
             ConfigRoot = config;
             dal = new DAL(ConfigRoot.GetConnectionString("DefaultConnection"));
         }
-        //// GET: api/UserProfile
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+
+        // GET: api/UserProfile
+        [HttpGet("{id}")]
+        public UserProfile GetUserById(int id)
+        {
+            return dal.GetUserById(id);
+        }
 
         //// GET: api/UserProfile/5
         //[HttpGet("{id}", Name = "Get")]

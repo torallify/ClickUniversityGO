@@ -449,7 +449,7 @@ namespace ClickUniversityGo.Services
 
         public int RemoveFromFavorites(int id)
         {
-            string delete = "DELETE FROM Favorites WHERE ID = @id";
+            string delete = "EXEC RemoveFromFavorites @id";
             int result = conn.Execute(delete, new { id = id });
             conn.Close();
             return result;
@@ -557,8 +557,8 @@ namespace ClickUniversityGo.Services
 
         public IEnumerable<Question> GetQuestionsByPostedDESC(DateTime date)
         {
-            string queryString = "SELECT * FROM Questions WHERE Posted = @date Order By Posted DESC";
-            IEnumerable<Question> Questions = conn.Query<Question>(queryString);
+            string queryString = "EXEC GetQuestionsByPostedDESC @Date";
+            IEnumerable<Question> Questions = conn.Query<Question>(queryString, new { Date = date});
             conn.Close();
             return Questions;
         }
@@ -597,10 +597,19 @@ namespace ClickUniversityGo.Services
 
 
         // ************************ User Profiles ********************\
+        //public int AddUserProfile(UserProfile newUserProfile)
+        //{
+        //    string command = "INSERT INTO UserProfiles (UserName, Email, HomeState, ACTScore, SATScore, DesiredState) ";
+        //    command += "VALUES (@UserName, @Email, @HomeState, @ACTScore, @SATScore, @DesiredState) ";
+
+        //    conn.Close();
+
+        //    return conn.Execute(command, newUserProfile);
+        //}
+
         public int AddUserProfile(UserProfile newUserProfile)
         {
-            string command = "INSERT INTO UserProfiles (UserName, Email, HomeState, ACTScore, SATScore, DesiredState) ";
-            command += "VALUES (@UserName, @Email, @HomeState, @ACTScore, @SATScore, @DesiredState) ";
+            string command = "EXEC AddUserProfile @UserName, @Email, @HomeState, @ACTScore, @SATScore, @DesiredState";
 
             conn.Close();
 
@@ -631,7 +640,7 @@ namespace ClickUniversityGo.Services
         //    return User;
         //}
 
-        public UserProfile GetUserById(string id)
+        public UserProfile GetUserById(int id)
         {
             string queryString = "EXEC GetUserById @UserID";
             UserProfile UserById = conn.QueryFirst<UserProfile>(queryString, new { UserID = id });
