@@ -12,7 +12,7 @@ export interface University {
   numAssociate: number;
   numBachelor: number;
   graduationRate: number;
-  aCTComposite: number;
+  actComposite: number;
   sATReadWrite: number;
   sATMath: number;
   programEducation: number;

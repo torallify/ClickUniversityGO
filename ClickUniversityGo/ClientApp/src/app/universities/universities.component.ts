@@ -5,20 +5,24 @@ import { University } from '../interfaces/university';
 import { JoinedItem } from '../interfaces/favorite';
 
 @Component({
-    selector: 'app-universities',
-    templateUrl: './universities.component.html',
-    styleUrls: ['./universities.component.scss']
+  selector: 'app-universities',
+  templateUrl: './universities.component.html',
+  styleUrls: ['./universities.component.scss']
 })
 /** universities component*/
 export class UniversitiesComponent {
-/** universities ctor */
+  /** universities ctor */
   universities: University[];
-  actTest: University[];
+  actMathcedUniversities: University[];
+  satMatchedUniversities: University[];
   satTest: University[];
+  actTest: University[];
+  combined: University[];
   searchName: string;
   searchStateInput: string;
   searchActInput: number;
   searchSatInput: number;
+  searchResult: any;
 
   constructor(private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
@@ -50,7 +54,7 @@ export class UniversitiesComponent {
   }
 
   searchMaxACT(): any {
-    
+
     this.universityData.searchACT(this.searchActInput).subscribe(
       (data: University[]) => {
         this.actTest = data;
@@ -69,13 +73,57 @@ export class UniversitiesComponent {
     );
   }
 
-  searchACTSAT(): any {
+  //search(SAT: any, ACT: any): any {
 
-    this.universityData.searchSAT(this.searchSatInput).subscribe(
-      (data: University[]) => {
-        this.satTest = data;
-      },
-      error => console.error(error)
-    );
+  //  this.universityData.searchSAT(SAT).subscribe(
+  //    (data: University[]) => {
+  //      this.combined = data;
+  //    },
+  //    error => console.error(error)
+  //  );
+
+  //  this.universityData.searchACT(ACT).subscribe(
+  //    (data: University[]) => {
+  //      this.combined = data;
+  //    },
+  //    error => console.error(error)
+  //  );
+
+  //}
+
+  search(SAT: any, ACT: any): any {
+    if (((SAT != null) && (SAT != ""))
+      && ((ACT != null) && (ACT != ""))) {
+      this.universityData.searchSAT(SAT).subscribe(
+        (data: University[]) => {
+          this.satMatchedUniversities = data;
+          console.log(this.satMatchedUniversities);
+          let a = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
+          console.log("combined result " + a);
+        },
+        error => console.error(error)
+      );
+    }
+    else if (ACT == "" || ACT == null) {
+      this.universityData.searchSAT(SAT).subscribe(
+        (data: University[]) => {
+          this.satMatchedUniversities = data;
+          console.log(this.satMatchedUniversities);
+
+        },
+        error => console.error(error)
+      );
+    }
+    else {
+      this.universityData.searchACT(ACT).subscribe(
+        (data: University[]) => {
+          this.satMatchedUniversities = data;
+          console.log(this.satMatchedUniversities);
+
+        },
+        error => console.error(error)
+      );
+    }
+
   }
 }
