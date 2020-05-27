@@ -14,6 +14,7 @@ import { QandaDetailComponent } from './qanda-detail/qanda-detail.component';
 import { UniversitiesComponent } from './universities/universities.component';
 import { UniversityDetailComponent } from './university-detail/university-detail.component';
 import { UniversitiesDataService } from './universities-data.service';
+import { UserProfileDetailComponent } from './user-profile-detail/user-profile-detail.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserProfileDataService } from './user-profile-data.service';
 import { FavoritesDataService } from './favorites-data.service';
@@ -37,6 +38,7 @@ import { IgxTabsModule } from 'igniteui-angular';
     UniversitiesComponent,
     UniversityDetailComponent,
     UserProfileComponent,
+    UserProfileDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,7 +49,8 @@ import { IgxTabsModule } from 'igniteui-angular';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'universities', component: UniversitiesComponent },
       { path: 'universities/:id', component: UniversityDetailComponent },
-      { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthorizeGuard] },
+      { path: 'add-user-profile', component: UserProfileComponent, canActivate: [AuthorizeGuard] },
+      { path: 'user-profile', component: UserProfileDetailComponent, canActivate: [AuthorizeGuard] },
       { path: 'q-and-a', component: QandaComponent, canActivate: [AuthorizeGuard] }
 
       //{ path: 'counter', component: CounterComponent },
