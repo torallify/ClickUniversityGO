@@ -66,7 +66,8 @@
     <button (click)="clearFilters(); search(searchSatInput, searchActInput, searchStateInput);" class="searchButton">Clear Filters</button>
     <br />
 
-    <div [hidden]="hideName">
+    <!--<div [hidden]="hideName">-->
+    <div>
       <input type="text" placeholder="Search by Name" [(ngModel)]="searchName" size="30" />
     </div>
 

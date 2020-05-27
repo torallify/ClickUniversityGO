@@ -32,7 +32,7 @@ export class UniversitiesComponent {
     this.searchName = "";
     this.searchStateInput = "";
     this.hideName = true;
-    this.get();
+    this.search(1600, 36, "");
   }
 
   get() {
