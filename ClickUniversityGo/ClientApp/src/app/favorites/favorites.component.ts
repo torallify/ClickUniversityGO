@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthorizeService } from '../../api-authorization/authorize.service';
 import { JoinedItem } from '../interfaces/favorite';
 import { UniversitiesDataService } from '../universities-data.service';
 import { FavoritesDataService } from '../favorites-data.service';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-favorites',
@@ -9,37 +12,34 @@ import { FavoritesDataService } from '../favorites-data.service';
     styleUrls: ['./favorites.component.scss']
 })
 /** favorites component*/
-export class FavoritesComponent {
-
+export class FavoritesComponent implements OnInit {
+  public isAuthenticated: Observable<boolean>;
   favorites: JoinedItem[];
-  constructor(private uniData: UniversitiesDataService, private favData: FavoritesDataService) {
 
-  }
+  constructor(private authorizeService: AuthorizeService,private uniData: UniversitiesDataService, private favData: FavoritesDataService) {}
+
+  newEmail: string;
 
   ngOnInit() {
-    //replace with name of get from service
-    //this.favData.email = this.uniData.userID;
+    this.isAuthenticated = this.authorizeService.isAuthenticated();
+
+    this.authorizeService.getUser().subscribe(user => this.newEmail = user.name);
     this.getFavorites();
   }
 
-  getFavorites() {
-    this.favData.getFavorites().subscribe(
-      (data: JoinedItem[]) => {
-        this.favorites = data;
-      },
-      error => console.error(error)
-    );
+  async getFavorites() {
+    this.favorites = await this.favData.getFavorites(this.newEmail)
   }
 
-  deleteFavorite(id: number) {
-    //replace with name of delete cart item from service
-    this.favData.deleteFavorite(id).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.getFavorites();
-      },
-      error => console.error(error)
-    );
-  }
+  //deleteFavorite(id: number) {
+  //  //replace with name of delete cart item from service
+  //  this.favData.deleteFavorite(id).subscribe(
+  //    (data: any) => {
+  //      console.log(data);
+  //      this.getFavorites();
+  //    },
+  //    error => console.error(error)
+  //  );
+  //}
 
 }
