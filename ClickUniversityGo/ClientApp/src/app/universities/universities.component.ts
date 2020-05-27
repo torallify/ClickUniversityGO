@@ -14,7 +14,7 @@ export class UniversitiesComponent {
   /** universities ctor */
   universities: University[];
   actMathcedUniversities: University[];
-  satMatchedUniversities: University[];
+  searchResults: University[];
   satTest: University[];
   actTest: University[];
   combined: University[];
@@ -48,6 +48,12 @@ export class UniversitiesComponent {
     this.hideName = false;
   }
 
+  clearFilters() {
+    this.searchActInput = null;
+    this.searchSatInput = null;
+    this.searchStateInput = "";
+  }
+
   searchUniversity(university: string): boolean {
 
     return university.toLowerCase().includes(this.searchName.toLowerCase());
@@ -58,40 +64,23 @@ export class UniversitiesComponent {
     return university.includes(this.searchStateInput);
   }
 
-  searchMaxACT(): any {
 
-    this.universityData.searchACT(this.searchActInput).subscribe(
-      (data: University[]) => {
-        this.actTest = data;
-      },
-      error => console.error(error)
-    );
-  }
 
-  searchMaxSAT(): any {
-
-    this.universityData.searchSAT(this.searchSatInput).subscribe(
-      (data: University[]) => {
-        this.satTest = data;
-      },
-      error => console.error(error)
-    );
-  }
   search(SAT: any, ACT: any, State: string): any {
     if (((SAT != null) && (SAT != ""))
       && ((ACT != null) && (ACT != ""))) {
       this.universityData.searchSAT(SAT).subscribe(
         (data: University[]) => {
-          this.satMatchedUniversities = data;
-          console.log(this.satMatchedUniversities);
+          this.searchResults = data;
+          console.log(this.searchResults);
           if (State == "") {
-            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
+            this.searchResults = this.searchResults.filter(univ => univ.actComposite <= ACT);
           }
           else {
-            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
-            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+            this.searchResults = this.searchResults.filter(univ => univ.actComposite <= ACT);
+            this.searchResults = this.searchResults.filter(univ => univ.state == State);
           }
-          console.log(this.satMatchedUniversities);
+          console.log(this.searchResults);
         },
         error => console.error(error)
       );
@@ -100,13 +89,13 @@ export class UniversitiesComponent {
       this.universityData.searchSAT(SAT).subscribe(
         (data: University[]) => {
           if (State == "") {
-            this.satMatchedUniversities = data;
+            this.searchResults = data;
           }
           else {
-            this.satMatchedUniversities = data;
-            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+            this.searchResults = data;
+            this.searchResults = this.searchResults.filter(univ => univ.state == State);
           }
-          console.log(this.satMatchedUniversities);
+          console.log(this.searchResults);
 
         },
         error => console.error(error)
@@ -117,13 +106,13 @@ export class UniversitiesComponent {
       this.universityData.searchACT(ACT).subscribe(
         (data: University[]) => {
           if (State == "") {
-            this.satMatchedUniversities = data;
+            this.searchResults = data;
           }
           else {
-            this.satMatchedUniversities = data;
-            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+            this.searchResults = data;
+            this.searchResults = this.searchResults.filter(univ => univ.state == State);
           }
-          console.log(this.satMatchedUniversities);
+          console.log(this.searchResults);
 
         },
         error => console.error(error)
@@ -133,13 +122,13 @@ export class UniversitiesComponent {
       this.universityData.searchACT(36).subscribe(
         (data: University[]) => {
           if (State == "") {
-            this.satMatchedUniversities = data;
+            this.searchResults = data;
           }
           else {
-            this.satMatchedUniversities = data;
-            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+            this.searchResults = data;
+            this.searchResults = this.searchResults.filter(univ => univ.state == State);
           }
-          console.log(this.satMatchedUniversities);
+          console.log(this.searchResults);
 
         },
         error => console.error(error)
@@ -147,6 +136,26 @@ export class UniversitiesComponent {
     }
 
   }
+
+    //searchMaxACT(): any {
+
+  //  this.universityData.searchACT(this.searchActInput).subscribe(
+  //    (data: University[]) => {
+  //      this.actTest = data;
+  //    },
+  //    error => console.error(error)
+  //  );
+  //}
+
+  //searchMaxSAT(): any {
+
+  //  this.universityData.searchSAT(this.searchSatInput).subscribe(
+  //    (data: University[]) => {
+  //      this.satTest = data;
+  //    },
+  //    error => console.error(error)
+  //  );
+  //}
   //search(SAT: any, ACT: any): any {
   //  if (((SAT != null) && (SAT != ""))
   //    && ((ACT != null) && (ACT != ""))) {
