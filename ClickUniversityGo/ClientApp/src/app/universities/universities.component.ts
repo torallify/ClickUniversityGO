@@ -23,7 +23,7 @@ export class UniversitiesComponent {
   searchActInput: number;
   searchSatInput: number;
   searchResult: any;
-  hideStates: boolean;
+  hideName: boolean;
 
   constructor(private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
@@ -31,7 +31,7 @@ export class UniversitiesComponent {
   ngOnInit() {
     this.searchName = "";
     this.searchStateInput = "";
-
+    this.hideName = true;
     this.get();
   }
 
@@ -44,8 +44,8 @@ export class UniversitiesComponent {
     );
   }
 
-  toggleShowStates = function () {
-    this.hideStates = !this.hideStates;
+  toggleShowNames = function () {
+    this.hideName = false;
   }
 
   searchUniversity(university: string): boolean {
@@ -112,6 +112,7 @@ export class UniversitiesComponent {
         error => console.error(error)
       );
     }
+    
     else {
       this.universityData.searchACT(ACT).subscribe(
         (data: University[]) => {
