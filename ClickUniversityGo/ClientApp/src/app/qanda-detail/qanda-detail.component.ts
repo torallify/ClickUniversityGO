@@ -16,6 +16,7 @@ export class QandaDetailComponent implements OnInit {
   public userID: Observable<string>;
   public userName: Observable<string>;
   //questions: Question[];
+  q: Question;
   answers: Answer[];
 
   constructor(private authorizeService: AuthorizeService, private qandAData: QandADataService) { }
@@ -37,11 +38,11 @@ export class QandaDetailComponent implements OnInit {
     this.answers = await this.qandAData.getAnswers()
   }
 
-  async addNewAnswer() {
+  async addNewAnswer(q: Question) {
     await this.qandAData.addNewAnswer({ email: this.newEmail, detail: this.newDetail, questionId: this.newQuestionId, posted: this.newPosted, upvotes: this.newUpvotes } as Answer)
 
     this.newDetail = ""
-    this.newQuestionId = null
+    this.newQuestionId = q.id
     this.newPosted = null
     this.newUpvotes = null
   }
