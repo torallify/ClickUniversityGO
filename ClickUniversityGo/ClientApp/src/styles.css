@@ -46,3 +46,15 @@ code {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }*/
+
+.homePageDisplay {
+  background-color: white;
+  max-width: 1100px;
+  margin: 50px auto;
+  border-radius: 5px;
+  border: 1px;
+  border-color: black;
+  /*border-style: solid;*/
+  font-family: 'Century Gothic';
+  box-shadow: 5px 5px 5px 5px #d9d9d9;
+}
