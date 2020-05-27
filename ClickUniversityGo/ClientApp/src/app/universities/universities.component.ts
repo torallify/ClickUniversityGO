@@ -23,6 +23,7 @@ export class UniversitiesComponent {
   searchActInput: number;
   searchSatInput: number;
   searchResult: any;
+  hideStates: boolean;
 
   constructor(private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
@@ -41,6 +42,10 @@ export class UniversitiesComponent {
       },
       error => console.error(error)
     );
+  }
+
+  toggleShowStates = function () {
+    this.hideStates = !this.hideStates;
   }
 
   searchUniversity(university: string): boolean {
