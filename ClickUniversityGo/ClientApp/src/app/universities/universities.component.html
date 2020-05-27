@@ -85,7 +85,13 @@
         </div>
         <hr />
       </ng-container>
+
+
     </div>
+    <div *ngIf="satMatchedUniversities?.length==0">
+      <h3 class="notFound">No universities found! Please try again!</h3>
+    </div>
+
   </igx-tabs-group>
 
   <!--<igx-tabs-group label="Search by Name">
