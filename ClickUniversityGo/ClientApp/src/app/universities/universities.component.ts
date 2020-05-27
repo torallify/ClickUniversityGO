@@ -96,7 +96,7 @@ export class UniversitiesComponent {
         error => console.error(error)
       );
     }
-    else if (ACT == "" || ACT == null) {
+    else if ((ACT == "" || ACT == null) && (SAT != null && SAT != "")){
       this.universityData.searchSAT(SAT).subscribe(
         (data: University[]) => {
           if (State == "") {
@@ -112,9 +112,25 @@ export class UniversitiesComponent {
         error => console.error(error)
       );
     }
-    
-    else {
+
+    else if ((SAT == "" || SAT == null) && (ACT != null && ACT != "")) {
       this.universityData.searchACT(ACT).subscribe(
+        (data: University[]) => {
+          if (State == "") {
+            this.satMatchedUniversities = data;
+          }
+          else {
+            this.satMatchedUniversities = data;
+            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+          }
+          console.log(this.satMatchedUniversities);
+
+        },
+        error => console.error(error)
+      );
+    }
+    else {
+      this.universityData.searchACT(36).subscribe(
         (data: University[]) => {
           if (State == "") {
             this.satMatchedUniversities = data;
