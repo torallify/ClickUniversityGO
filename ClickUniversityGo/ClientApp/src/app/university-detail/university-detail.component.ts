@@ -19,7 +19,7 @@ export class UniversityDetailComponent {
   university: University;
   @Input() ref: string;
   @Input() id: number;
-  
+
 
 
   constructor(private universityData: UniversitiesDataService, public route: ActivatedRoute,
@@ -37,7 +37,7 @@ export class UniversityDetailComponent {
       (data: University) => this.university = { ...data },
       error => console.error(error))
     console.log("Name: " + this.university.universityName)
-      }
+  }
 
 
 
