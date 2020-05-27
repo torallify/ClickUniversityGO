@@ -30,7 +30,7 @@ export class UniversitiesComponent {
 
   ngOnInit() {
     this.searchName = "";
-    this.searchStateInput = "MI";
+    this.searchStateInput = "";
 
     this.get();
   }
@@ -77,15 +77,20 @@ export class UniversitiesComponent {
       error => console.error(error)
     );
   }
-
-  search(SAT: any, ACT: any): any {
+  search(SAT: any, ACT: any, State: string): any {
     if (((SAT != null) && (SAT != ""))
       && ((ACT != null) && (ACT != ""))) {
       this.universityData.searchSAT(SAT).subscribe(
         (data: University[]) => {
           this.satMatchedUniversities = data;
           console.log(this.satMatchedUniversities);
-          this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
+          if (State == "") {
+            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
+          }
+          else {
+            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
+            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+          }
           console.log(this.satMatchedUniversities);
         },
         error => console.error(error)
@@ -94,7 +99,13 @@ export class UniversitiesComponent {
     else if (ACT == "" || ACT == null) {
       this.universityData.searchSAT(SAT).subscribe(
         (data: University[]) => {
-          this.satMatchedUniversities = data;
+          if (State == "") {
+            this.satMatchedUniversities = data;
+          }
+          else {
+            this.satMatchedUniversities = data;
+            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+          }
           console.log(this.satMatchedUniversities);
 
         },
@@ -104,7 +115,13 @@ export class UniversitiesComponent {
     else {
       this.universityData.searchACT(ACT).subscribe(
         (data: University[]) => {
-          this.satMatchedUniversities = data;
+          if (State == "") {
+            this.satMatchedUniversities = data;
+          }
+          else {
+            this.satMatchedUniversities = data;
+            this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.state == State);
+          }
           console.log(this.satMatchedUniversities);
 
         },
@@ -113,4 +130,39 @@ export class UniversitiesComponent {
     }
 
   }
+  //search(SAT: any, ACT: any): any {
+  //  if (((SAT != null) && (SAT != ""))
+  //    && ((ACT != null) && (ACT != ""))) {
+  //    this.universityData.searchSAT(SAT).subscribe(
+  //      (data: University[]) => {
+  //        this.satMatchedUniversities = data;
+  //        console.log(this.satMatchedUniversities);
+  //        this.satMatchedUniversities = this.satMatchedUniversities.filter(univ => univ.actComposite <= ACT);
+  //        console.log(this.satMatchedUniversities);
+  //      },
+  //      error => console.error(error)
+  //    );
+  //  }
+  //  else if (ACT == "" || ACT == null) {
+  //    this.universityData.searchSAT(SAT).subscribe(
+  //      (data: University[]) => {
+  //        this.satMatchedUniversities = data;
+  //        console.log(this.satMatchedUniversities);
+
+  //      },
+  //      error => console.error(error)
+  //    );
+  //  }
+  //  else {
+  //    this.universityData.searchACT(ACT).subscribe(
+  //      (data: University[]) => {
+  //        this.satMatchedUniversities = data;
+  //        console.log(this.satMatchedUniversities);
+
+  //      },
+  //      error => console.error(error)
+  //    );
+  //  }
+
+  //}
 }

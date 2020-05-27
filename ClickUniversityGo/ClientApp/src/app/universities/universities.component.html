@@ -192,19 +192,19 @@
     </div>
     <br />
   </igx-tabs-group>
-  <igx-tabs-group label="Combined SAT/ACT search">
+  <igx-tabs-group label="Combined search">
 
     <input type="text" placeholder="Search by max SAT score" [(ngModel)]="searchSatInput" size="30" />
     <input type="text" placeholder="Search by max ACT score" [(ngModel)]="searchActInput" size="30" />
-    <button (click)="search(searchSatInput, searchActInput)">Search</button>
+    <button (click)="search(searchSatInput, searchActInput, searchStateInput)">Search</button>
     <br />
-    <button (click)="toggleShowStates()">
+    <!--<button (click)="toggleShowStates()">
       {{ hideStates ? 'Show all states' : 'Hide states' }}
-    </button>
+    </button>-->
     <div [hidden]="hideStates">
-      <!--<select [(ngModel)]="searchStateInput" style="width:200px">-->
-
-        <!--<option value="AL">Alabama</option>
+      <select [(ngModel)]="searchStateInput" style="width:200px">
+        <option value="">Choose a state</option>
+        <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
         <option value="AR">Arkansas</option>
@@ -255,20 +255,21 @@
         <option value="WV">West Virginia</option>
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
-      </select>-->
+      </select>
     </div>
     <div *ngFor="let university of satMatchedUniversities">
 
 
 
       <div>
-        {{university.universityName}} - {{university.state}}
-        <br />
+        <a [routerLink]="[university.id]">
+          {{university.universityName}}</a> - {{university.state}}
+          <br />
 
-        <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
-        <br />
-        <img src="https://logo.clearbit.com/{{university.website}}">
-      </div>
+          <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
+          <br />
+          <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university.website}}"></a>
+</div>
       <hr />
 
 
