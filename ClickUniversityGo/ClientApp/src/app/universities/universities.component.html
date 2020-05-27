@@ -4,9 +4,9 @@
 
   <igx-tabs-group label="Combined search">
     <br />
-    <input type="number" placeholder="SAT score" [(ngModel)]="searchSatInput" size="20" min="760" step="10" style="width:100px" max="1600" />
-    <input type="number" placeholder="ACT score" [(ngModel)]="searchActInput" size="25" min="13" max="36" style="margin: 0 5px 0 5px;width:100px " />
 
+    <input type="number" placeholder="ACT score" [(ngModel)]="searchActInput" size="25" min="13" max="36" style="width:100px " />
+    <input type="number" placeholder="SAT score" [(ngModel)]="searchSatInput" size="20" min="760" step="10" style="margin: 0 5px 0 5px;width:100px" max="1600" />
     <select [(ngModel)]="searchStateInput" style="width:200px;height:30px">
       <option value="">Choose a state (optional)</option>
       <option value="AL">Alabama</option>
