@@ -242,11 +242,11 @@ SELECT *
 FROM UserProfiles
 
 GO
-CREATE PROCEDURE GetUserById @UserID NVARCHAR(10)
+CREATE PROCEDURE GetUserById @Email NVARCHAR(10)
 AS
 SELECT *
 FROM UserProfiles
-WHERE UserID = UserID
+WHERE Email = @Email
 
 GO
 CREATE PROCEDURE AddUserProfile (@Email NVARCHAR (256), @HomeState NVARCHAR (50), @ACTScore INT, @SATScore INT, @DesiredState NVARCHAR (50))
