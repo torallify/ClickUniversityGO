@@ -19,3 +19,30 @@ code {
   background-image: url('src/assets/CollegePhotos/CampusBuilding.png');
   background-size: auto;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+/*.detailsStyle {
+  background-image: url('src/assets/CollegePhotos/ivyPath.png');
+  background-size: 100%;
+}
+
+/*.image-wrapper {
+  width: 100%;
+  height: 100%;
+  background: url('src/assets/CollegePhotos/ivyPath.png') no-repeat;
+  background-size: cover;
+  padding: 5px;
+  margin: auto;
+}*/
+
+/*.tableBckImg {
+  background: url('src/assets/CollegePhotos/ivyPath.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}*/
