@@ -499,8 +499,9 @@ namespace ClickUniversityGo.Services
         {
             ans.Posted = DateTime.Now;
             ans.Upvotes = 0;
+            ans.QuestionId = qId;
             string addQuery = "Insert Into Answers (Email, Detail, QuestionId, Posted, Upvotes) ";
-            addQuery += "Values (@Email, @Detail, @QuestionId=qId, @Posted, @Upvotes)";
+            addQuery += "Values (@Email, @Detail, @QuestionId, @Posted, @Upvotes)";
             return conn.Execute(addQuery, ans);
         }
 
