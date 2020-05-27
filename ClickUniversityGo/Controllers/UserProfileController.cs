@@ -24,10 +24,10 @@ namespace ClickUniversityGo.Controllers
         }
 
         // GET: api/UserProfile
-        [HttpGet("{id}")]
-        public UserProfile GetUserById(int id)
+        [HttpGet("{email}")]
+        public IEnumerable<UserProfile> GetAllUsers(string email)
         {
-            return dal.GetUserById(id);
+            return dal.GetAllUsers(email);
         }
 
         //// GET: api/UserProfile/5

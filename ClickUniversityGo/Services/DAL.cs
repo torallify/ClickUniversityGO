@@ -654,13 +654,13 @@ namespace ClickUniversityGo.Services
         //    return UserProfiles;
         //}
 
-        public IEnumerable<UserProfile> GetAllUsers()
-        {
-            string queryString = "EXEC GetAllUsers";
-            IEnumerable<UserProfile> AllUsers = conn.Query<UserProfile>(queryString);
-            conn.Close();
-            return AllUsers;
-        }
+        //public IEnumerable<UserProfile> GetAllUsers()
+        //{
+        //    string queryString = "EXEC GetAllUsers";
+        //    IEnumerable<UserProfile> AllUsers = conn.Query<UserProfile>(queryString);
+        //    conn.Close();
+        //    return AllUsers;
+        //}
 
         //public UserProfile GetUserById(string id)
         //{
@@ -670,12 +670,12 @@ namespace ClickUniversityGo.Services
         //    return User;
         //}
 
-        public UserProfile GetUserById(int id)
+        public IEnumerable<UserProfile> GetAllUsers(string email)
         {
-            string queryString = "EXEC GetUserById @UserID";
-            UserProfile UserById = conn.QueryFirst<UserProfile>(queryString, new { UserID = id });
+            string queryString = "EXEC GetUserByEmail @UserID";
+            IEnumerable<UserProfile> result = conn.Query<UserProfile>(queryString, new { UserID = email });
             conn.Close();
-            return UserById;
+            return result;
         }
     }
 }

@@ -1,1 +1,20 @@
-﻿<div style="border: 1px solid red">user-profile-detail Component</div>
+<h2 style="text-align: center">My User Profile</h2>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">ACT Score</th>
+      <th scope="col">SAT Score</th>
+      <th scope="col">Dream State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userProfiles; let i = index">
+      <td>{{user.actScore}}</td>
+      <td>{{user.satScore}}</td>
+      <td>{{user.desiredState}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<app-universities></app-universities>
