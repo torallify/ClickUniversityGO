@@ -133,12 +133,6 @@ WHERE ProgramPhysicalScience <= @ProgramPhysicalScience
 ---------------------------------------------------------------------------------------------------
 ------------------------------- Favorites Stored Procedures ---------------------------------------
 ---------------------------------------------------------------------------------------------------
-GO
-CREATE PROCEDURE GetAllFavoritesByUserID @UserID NVARCHAR(10)
-AS
-SELECT *
-FROM Favorites
-WHERE UserID = @UserID
 
 GO
 CREATE PROCEDURE AddToFavorites (@userID NVARCHAR(10), @universityID NVARCHAR(10))
@@ -152,15 +146,36 @@ AS
 DELETE FROM Favorites WHERE ID = @id
 
 GO
-CREATE PROCEDURE GetAllFavorites @id NVARCHAR(10)
+CREATE PROCEDURE GetAllFavorites @Email NVARCHAR(256)
 AS
 SELECT 
 	FAV.ID
-	,FAV.UserID
+	,FAV.Email
+	,FAV.UniversityID
 	,UNV.UniversityName
+	,UNV.Website
+	,UNV.State
+	,UNV.CostOnCampusInState
+	,UNV.CostOnCampusOutOfState
+	,UNV.CostOffCampusInState
+	,UNV.CostOffCampusOutOfState
+	,UNV.PercentAdmitted
+	,UNV.UndergradEnrollment
+	,UNV.NumAssociate
+	,UNV.NumBachelor
+	,UNV.GraduationRate
+	,UNV.ACTComposite
+	,UNV.SATReadWrite
+	,UNV.SATMath
+	,UNV.ProgramEducation
+	,UNV.ProgramEngineering
+	,UNV.ProgramScience
+	,UNV.ProgramMath
+	,UNV.ProgramPhysicalScience
+	,UNV.ProgramBusiness
 FROM Favorites AS FAV
-JOIN Universities AS UNV ON FAV.ID = UNV.ID
-WHERE FAV.UserID = @id
+JOIN Universities AS UNV ON FAV.UniversityID = UNV.ID
+WHERE FAV.Email = @Email
 
 
 ---------------------------------------------------------------------------------------------------
