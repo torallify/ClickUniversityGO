@@ -63,13 +63,15 @@
     </select>
 
     <button (click)="search(searchSatInput, searchActInput, searchStateInput); toggleShowNames()" class="searchButton">Search</button>
+    <button (click)="clearFilters(); search(searchSatInput, searchActInput, searchStateInput);" class="searchButton">Clear Filters</button>
     <br />
 
-    <div [hidden]="hideName">
+    <!--<div [hidden]="hideName">-->
+    <div>
       <input type="text" placeholder="Search by Name" [(ngModel)]="searchName" size="30" />
     </div>
 
-    <div *ngFor="let university of satMatchedUniversities">
+    <div *ngFor="let university of searchResults">
       <ng-container *ngIf="searchUniversity(university.universityName)">
         <div>
           <h3>
@@ -85,7 +87,13 @@
         </div>
         <hr />
       </ng-container>
+
+
     </div>
+    <div *ngIf="searchResults?.length==0">
+      <h3 class="notFound">No universities found! Please try again!</h3>
+    </div>
+
   </igx-tabs-group>
 
   <!--<igx-tabs-group label="Search by Name">
