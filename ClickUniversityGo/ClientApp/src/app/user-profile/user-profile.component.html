@@ -55,8 +55,8 @@
       <option value="WI">Wisconsin</option>
       <option value="WY">Wyoming</option>
     </select><br />
-  ACT Score: <input type="number" id="aCTScore" [(ngModel)]="newACTScore" class="form-control"><br />
-  SAT Score: <input type="number" id="sATScore" [(ngModel)]="newSATScore" class="form-control"><br />
+  ACT Score: <input type="number" id="aCTScore" [(ngModel)]="newACTScore" class="form-control" min="13" max="36"><br />
+  SAT Score: <input type="number" id="sATScore" [(ngModel)]="newSATScore" class="form-control" min="660" max="1600" step="10"><br />
   Desired State: 
 <select  id="desiredState" [(ngModel)]="newDesiredState" class="form-control">
       <option value="AL">Alabama</option>
