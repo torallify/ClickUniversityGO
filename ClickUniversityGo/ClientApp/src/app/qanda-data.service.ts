@@ -10,8 +10,16 @@ export class QandADataService {
   async getQuestions() {
     return this.http.get<Question[]>('/api/QandA').toPromise();
   }
+  async getAnswers() {
+    return this.http.get<Answer[]>('/api/Answers').toPromise();
+  }
   async addNewQuestion(question: Partial<Question>) {
 
     return this.http.post<number>('/api/QandA', question).toPromise();
   }
+  async addNewAnswer(answer: Partial<Answer>) {
+
+    return this.http.post<number>('/api/Answer', answer).toPromise();
+  }
+  
 }

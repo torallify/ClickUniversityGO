@@ -516,6 +516,13 @@ namespace ClickUniversityGo.Services
             conn.Close();
             return AllQuestions;
         }
+        public IEnumerable<Answer> GetAllAnswers()
+        {
+            string queryString = "SELECT * FROM Answers";
+            IEnumerable<Answer> Answers = conn.Query<Answer>(queryString);
+            conn.Close();
+            return Answers;
+        }
 
         //public Question GetQuestionById(int id)
         //{
