@@ -38,9 +38,9 @@ namespace ClickUniversityGo.Controllers
 
         // POST: api/Answer
         [HttpPost]
-        public int AddNewAnswer(int qId, Answer a)
+        public int AddNewAnswer(Answer a)
         {
-            int result = dal.CreateAnswer(qId, a);
+            int result = dal.CreateAnswer(a);
             return result;
         }
 
