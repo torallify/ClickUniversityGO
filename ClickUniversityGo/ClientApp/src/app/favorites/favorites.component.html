@@ -1,7 +1,12 @@
-<h2 class="heading">Favorites</h2>
-<div *ngFor="let f of favorites" class="heading">
+<h2 class="heading" style="text-align: center;">Favorites</h2>
+<div *ngFor="let f of favorites" class="universitiesDisplay">
   <div>
-    University: {{f.universityName}} - {{f.state}}
+    <br />
+    <a [routerLink]="['favorites', f.id]"><img class="logoImages" src="https://logo.clearbit.com/{{favorites?.website}}"></a>&nbsp;
+    {{f.universityName}} - {{f.state}}&nbsp;
+    (<a href="https://{{f.website}}" target="_blank">{{f.website}}</a>)
+    <br />
+    <br />
   </div>
 </div>
 

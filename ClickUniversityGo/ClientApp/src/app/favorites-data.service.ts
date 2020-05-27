@@ -6,25 +6,25 @@ import { Favorite, JoinedItem } from './interfaces/favorite';
 
 @Injectable()
 export class FavoritesDataService {
-  userID: string;
+  email: string;
   constructor(private http: HttpClient) {
-
+    this.email = 'andrewsteward%40gmail.com';
   }
 
-  getFavorites(id: string) {
-    return this.http.get<JoinedItem[]>('/api/favorites/' + id);
+  getFavorites() {
+    return this.http.get<JoinedItem[]>('/api/favorite/' + this.email);
   }
   deleteFavorite(ticketid: number) {
-    return this.http.delete('/api/favorites/' + ticketid);
+    return this.http.delete('/api/favorite/' + ticketid);
   }
 
   postFavorite(id: number) {
     let item: Favorite = {
       id: 0,
-      userId: this.userID,
+      userId: this.email,
       universityId: id
     };
 
-    return this.http.post<Favorite>('/api/favorites', item);
+    return this.http.post<Favorite>('/api/favorite', item);
   }
 }

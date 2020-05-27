@@ -24,10 +24,10 @@ namespace ClickUniversityGo.Controllers
         }
 
         //GET: api/Favorite
-        [HttpGet("{id}")]
-        public IEnumerable<Favorite> GetAllFavoritesByUserID(int id)
+        [HttpGet("{email}")]
+        public IEnumerable<Favorite> GetAllFavoritesByEmail(string email)
         {
-            return dal.GetAllFavoritesByUserID(id);
+            return dal.GetAllFavoritesByEmail(email);
         }
 
         // POST: api/Favorite

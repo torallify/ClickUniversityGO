@@ -20,7 +20,7 @@
     </div>
     <!--<div>
     <div *ngFor="let university of universities; let i = index;">
-      <div *ngIf="i < 5" class="homePageDisplay">
+      <div *ngIf="i < 1495" class="homePageDisplay">
         {{university.universityName}} - {{university.state}}
         <br />
         <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
@@ -29,7 +29,7 @@
       </div>
     </div>
   </div>-->
-  <div class="homePageDisplay">
+  <div class="universitiesDisplay">
       <br />
       <a [routerLink]="['universities', universities[randomUniversity1].id]"><img class="logoImages" src="https://logo.clearbit.com/{{universities[randomUniversity1]?.website}}"></a>&nbsp;
       {{universities[randomUniversity1].universityName}} - {{universities[randomUniversity1].state}}&nbsp;
@@ -37,7 +37,7 @@
       <br />
       <br />
   </div>
-  <div class="homePageDisplay">
+  <div class="universitiesDisplay">
     <br />
     <a [routerLink]="['universities', universities[randomUniversity2].id]"><img class="logoImages" src="https://logo.clearbit.com/{{universities[randomUniversity2]?.website}}"></a>&nbsp;
     {{universities[randomUniversity2].universityName}} - {{universities[randomUniversity2].state}}&nbsp;
@@ -45,7 +45,7 @@
     <br />
     <br />
   </div>
-  <div class="homePageDisplay">
+  <div class="universitiesDisplay">
     <br />
     <a [routerLink]="['universities', universities[randomUniversity3].id]"><img class="logoImages" src="https://logo.clearbit.com/{{universities[randomUniversity3]?.website}}"></a>&nbsp;
     {{universities[randomUniversity3].universityName}} - {{universities[randomUniversity3].state}}&nbsp;
@@ -53,7 +53,7 @@
     <br />
     <br />
   </div>
-  <div class="homePageDisplay">
+  <div class="universitiesDisplay">
     <br />
     <a [routerLink]="['universities', universities[randomUniversity4].id]"><img class="logoImages" src="https://logo.clearbit.com/{{universities[randomUniversity4]?.website}}"></a>&nbsp;
     {{universities[randomUniversity4].universityName}} - {{universities[randomUniversity4].state}}&nbsp;
@@ -61,7 +61,7 @@
     <br />
     <br />
   </div>
-  <div class="homePageDisplay">
+  <div class="universitiesDisplay">
     <br />
     <a [routerLink]="['universities', universities[randomUniversity5].id]"><img class="logoImages" src="https://logo.clearbit.com/{{universities[randomUniversity5]?.website}}"></a>&nbsp;
     {{universities[randomUniversity5].universityName}} - {{universities[randomUniversity5].state}}&nbsp;

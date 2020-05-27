@@ -18,13 +18,13 @@ export class FavoritesComponent {
 
   ngOnInit() {
     //replace with name of get from service
-    this.favData.userID = this.uniData.userID;
+    //this.favData.email = this.uniData.userID;
     this.getFavorites();
   }
 
   getFavorites() {
-    this.favData.getFavorites(this.uniData.userID).subscribe(
-      (data: any) => {
+    this.favData.getFavorites().subscribe(
+      (data: JoinedItem[]) => {
         this.favorites = data;
       },
       error => console.error(error)
