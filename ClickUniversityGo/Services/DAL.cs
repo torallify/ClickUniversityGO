@@ -414,12 +414,15 @@ namespace ClickUniversityGo.Services
 
 
         // ************************ Favorites ********************
-        public IEnumerable<Favorite> GetAllFavoritesByEmail(string email)
+        
+        
+        
+        public IEnumerable<JoinedItem> GetAllFavorites(string email)
         {
-            string queryString = "EXEC GetAllFavoritesByEmail @Email";
-            IEnumerable<Favorite> FavoritesByEmail = conn.Query<Favorite>(queryString, new { Email = email });
+            string queryString = "EXEC GetAllFavorites @Email";
+            IEnumerable<JoinedItem> AllFavorites = conn.Query<JoinedItem>(queryString, new { Email = email });
             conn.Close();
-            return FavoritesByEmail;
+            return AllFavorites;
         }
 
         //public int AddToFavorites(Favorite f)

@@ -1,12 +1,12 @@
 export interface Favorite {
   id: number;
-  userId: string;
+  email: string;
   universityId: number;
 };
 
 export interface JoinedItem {
   id: number;
-  userId: string;
+  email: string;
   universityId: number;
   universityName: string;
   website: string;

@@ -10,6 +10,7 @@ namespace ClickUniversityGo.Models
         public int ID { get; set; }
         public int UserID { get; set; }
         public string UniversityName { get; set; }
+        public string Website { get; set; }
         public string State { get; set; }
         public int CostOnCampusInState { get; set; }
         public int CostOnCampusOutOfState { get; set; }
@@ -20,8 +21,6 @@ namespace ClickUniversityGo.Models
         public int NumAssociate { get; set; }
         public byte GraduationRate { get; set; }
         public int ACTComposite { get; set; }
-        public int ACTEnglish { get; set; }
-        public int ACTMath { get; set; }
         public int SATReadWrite { get; set; }
         public int SATMath { get; set; }
         public int ProgramEducation { get; set; }

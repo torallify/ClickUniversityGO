@@ -12,8 +12,9 @@ export class FavoritesDataService {
   }
 
   getFavorites() {
-    return this.http.get<JoinedItem[]>('/api/favorite/' + this.email);
+    return this.http.get<JoinedItem[]>(`/api/favorite/${this.email}`);
   }
+
   deleteFavorite(ticketid: number) {
     return this.http.delete('/api/favorite/' + ticketid);
   }
@@ -21,7 +22,7 @@ export class FavoritesDataService {
   postFavorite(id: number) {
     let item: Favorite = {
       id: 0,
-      userId: this.email,
+      email: this.email,
       universityId: id
     };
 
