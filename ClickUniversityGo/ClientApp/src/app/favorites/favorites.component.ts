@@ -35,15 +35,15 @@ export class FavoritesComponent implements OnInit {
 
   
 
-  //deleteFavorite(id: number) {
-  //  //replace with name of delete cart item from service
-  //  this.favData.deleteFavorite(id).subscribe(
-  //    (data: any) => {
-  //      console.log(data);
-  //      this.getFavorites();
-  //    },
-  //    error => console.error(error)
-  //  );
-  //}
+  deleteFavorite(id: number) {
+    //replace with name of delete cart item from service
+    this.favData.deleteFavorite(id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.getFavorites();
+      },
+      error => console.error(error)
+    );
+  }
 
 }

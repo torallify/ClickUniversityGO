@@ -41,13 +41,5 @@ export class FavoritesDataService {
     return this.http.delete('/api/favorite/' + ticketid);
   }
 
-  //postFavorite(id: number) {
-  //  let item: Favorite = {
-  //    id: 0,
-  //    email: this.email,
-  //    universityId: id
-  //  };
-
-  //  return this.http.post<Favorite>('/api/favorite', item);
-  //}
+  
 }

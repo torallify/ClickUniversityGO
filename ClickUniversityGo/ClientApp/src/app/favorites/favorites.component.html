@@ -5,6 +5,7 @@
     <a [routerLink]="['favorites', f.id]"><img class="logoImages" src="https://logo.clearbit.com/{{f?.website}}"></a>&nbsp;
     {{f.universityName}} - {{f.state}}&nbsp;
     (<a href="https://{{f.website}}" target="_blank">{{f.website}}</a>)
+    <button (click)="deleteFavorite(f.id)" class="btn btn-outline-danger">Remove from favorites</button>
     <br />
     <br />
   </div>
