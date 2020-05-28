@@ -23,18 +23,18 @@ namespace ClickUniversityGo.Controllers
             dal = new DAL(ConfigRoot.GetConnectionString("DefaultConnection"));
         }
         // GET: api/Answer
-        [HttpGet]
-        public IEnumerable<Answer> GetAllAnswers()
-        {
-            return dal.GetAllAnswers();
-        }
+        //[HttpGet]
+        //public IEnumerable<Answer> GetAllAnswers()
+        //{
+        //    return dal.GetAllAnswers();
+        //}
 
         //// GET: api/Answer/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpGet("{id}")]
+        public IEnumerable<Answer> GetAnswersByQuestionId(int id)
+        {
+            return dal.GetAnswersByQuestionId(id);
+        }
 
         // POST: api/Answer
         [HttpPost]

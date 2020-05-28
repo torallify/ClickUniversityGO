@@ -1,7 +1,8 @@
-<h3>{{question.title}}</h3>
-<h4>{{question.detail}}</h4>
-<p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
-
+<div class="questionsDisplay">
+  <h3>{{question.title}}</h3>
+  <h4>{{question.detail}}</h4>
+  <p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
+</div>
 
 <!--<div>
   <div class="card" *ngFor="let answer of answers; let i = index">
@@ -37,7 +38,7 @@
 </div>
 
 <button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>-->
-<!--div>
+<div>
   <h1 style="text-align: center; padding: 1px; color: mediumturquoise; font-family: 'Century Gothic'; font-size:3em ;margin-top: 30px"><strong>Answers</strong></h1>
   <div style="margin-bottom:100px;" class="myaccordion" id="accordionExample">
     <div class="card" *ngFor="let answer of answers; let i = index">
@@ -67,10 +68,10 @@
         <div class="card-body">
           <input type="hidden" id="email" [(ngModel)]="newEmail" class="form-control">
           Detail: <input type="text" id="detail" [(ngModel)]="newDetail" class="form-control"><br />
-          QuestionId: <input type="text" id="questionId" [(ngModel)]="newQuestionId" class="form-control"><br />
+          <!--QuestionId: <input type="text" id="questionId" [(ngModel)]="newQuestionId" class="form-control"><br />-->
           <button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>
         </div>
       </div>
     </div>
   </div>
-</div>-->
+</div>

@@ -495,7 +495,7 @@ namespace ClickUniversityGo.Services
             return conn.Execute(addString, q);
         }
 
-        internal int CreateAnswer(Answer ans)
+        public int CreateAnswer(Answer ans)
         {
             ans.Posted = DateTime.Now;
             ans.Upvotes = 0;
