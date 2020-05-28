@@ -16,7 +16,7 @@
     <button (click)="toggleEdit()" class="searchButton" style="margin-left:0">Edit Answer</button>
     <br /><br />
     <div [hidden]="showEdit">
-      <input type="text" [(ngModel)]="updateInput" placeholder="{{answer.detail}}" class="form-control"/>
+      <input type="text" [(ngModel)]="updateInput" placeholder="Edit answer" class="form-control"/>
       <br />
       <button (click)="editAnswer(answer.id)" class="btn btn-outline-info btn-block">Submit</button>
     </div>
