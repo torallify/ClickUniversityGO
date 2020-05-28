@@ -1,3 +1,15 @@
+Go
+Create Procedure PostAnswer @Email nvarchar(500), @Detail nvarchar (4000), @QuestionID int, @Posted datetime, @Upvotes int
+AS
+Insert Into Answers (Email, Detail, QuestionId, Posted, Upvotes) Values (@Email, @Detail, @QuestionId, @Posted, @Upvotes)
+
+GO
+Create Procedure PostQuestion @Email nvarchar(30), @Title nvarchar(200), @Detail nvarchar (4000), @Posted datetime, @Category nvarchar(30), @Tags nvarchar (200), @Status int
+AS
+Insert Into Questions (Email, Title, Detail, Posted, Category, Tags, Status) Values (@Email, @Title, @Detail, @Posted, @Category, @Tags, @Status)
+
+
+Go
 CREATE PROCEDURE GetAllUniversities
 AS
 SELECT *
