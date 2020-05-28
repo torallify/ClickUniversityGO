@@ -54,12 +54,12 @@ export class QandaDetailComponent implements OnInit {
 
   async getAnswers() {
     this.answers = await this.qandAData.getAnswerByID(this.id)
+    this.updateEvents()
   }
 
   async addNewAnswer() {
-    this.getQuestionByID(this.id)
     await this.qandAData.addNewAnswer({ email: this.newEmail, detail: this.newDetail, questionId: this.id} as Answer)
-
+    this.updateEvents()
     this.newDetail = ""
     this.newPosted = null
     this.newUpvotes = null
