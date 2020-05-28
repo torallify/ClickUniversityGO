@@ -1,0 +1,132 @@
+Jennifer Wilson
+email: jenniferwilson@gmail.com
+Password: Password1234!
+HomeState: CA
+ACT: 25
+SAT: 1230
+DesiredState: NY
+columbia university
+cornell university
+new york university
+university of southern california
+
+Steve Johnson
+emial: stevejohnson@gmail.com
+HomeState: PA
+ACT: 27
+SAT: 1260
+DesiredState: MI
+pennsylvania state university
+university of michigan
+michigan state
+
+Carol Stewart
+email: carolstewart@gmail.com
+HomeState: OH
+ACT: 34
+SAT: 1520
+DesiredState: MA
+Ohio state
+mit
+harvard university
+
+Josh Brown
+email: joshbrown@gmail.com
+HomeState: MI
+ACT: 20
+SAT: 1080
+DesiredState: FL
+Michigan state
+florida state
+university of florida
+
+
+
+INSERT INTO Favorites (
+	Email,
+	UniversityID
+)
+VALUES ('stevejohnson@gmail.com', 3466),
+		('stevejohnson@gmail.com', 6063),
+		('stevejohnson@gmail.com', 4363),
+		('jenniferwilson@gmail.com', 1438),
+		('jenniferwilson@gmail.com', 1519),
+		('jenniferwilson@gmail.com', 3879),
+		('jenniferwilson@gmail.com', 6194),
+		('carolstewart@gmail.com', 4096),
+		('carolstewart@gmail.com', 3335),
+		('carolstewart@gmail.com', 2499),
+		('joshbrown@gmail.com', 3466),
+		('joshbrown@gmail.com', 2165),
+		('joshbrown@gmail.com', 6007);
+
+
+INSERT INTO Questions(
+	Email,
+	Title,
+	Detail,
+	Posted,
+	Category,
+	Tags,
+	Status
+)
+VALUES ('jenniferwilson@gmail.com'
+		,'What is a typical day like in college?'
+		,'I am wondering what most people in college do with their time. Is it studying 24/7? Do students have a lot of free time?'
+		,'2019-03-02 15:22:23.057'
+		,'General'
+		,'General'
+		,1),
+		('stevejohnson@gmail.com'
+		,'Should I join clubs?'
+		,'Are clubs or groups a big part of the college experience and are they easy to get into? '
+		,'2019-05-28 12:17:23.057'
+		,'Clubs'
+		,'Clubs'
+		,1),
+		('joshbrown@gmail.com'
+		,'How did you decide which major to choose?'
+		,'I can not decide on if I want to be a lawyer or a doctor.'
+		,'2020-05-28 10:14:30.025'
+		,'Major'
+		,'Major'
+		,1),
+		('carolstewart@gmail.com'
+		,'Advice on how to study?'
+		,'Anone have any tips on time management?'
+		,'2020-05-28 12:17:23.057'
+		,'Time management'
+		,'Time management'
+		,1);
+
+INSERT INTO Answers(
+	Email,
+	Detail,
+	QuestionId,
+	Posted,
+	Upvotes
+)
+VALUES ('professorxavier@gmail.com'
+		,'You will have class 3 to 5 days a week. There are a lot of options for extracurricular activities. A wide variety of clubs, fraternities, and sports teams you can join to spend your time outside of class.'
+		,1000
+		,'2019-03-03 12:44:23.057'
+		,11
+		),
+		('professorxavier@gmail.com'
+		,'Yes! There should be a full day dedicated for club recruiting that you can go to. It is a great way to meet new friends!'
+		,1001
+		,'2019-05-29 11:37:26.057'
+		,13
+		),
+		('professorxavier@gmail.com'
+		,'If you are unsure of what to major in, take classes that are core requirements for graduating. As you take more classes, you will figure out what you enjoy and aslo what you are naturally good at.'
+		,1002
+		,'2020-05-30 14:22:29.025'
+		,8
+		),
+		('professorxavier@gmail.com'
+		,'Make sure to plan ahead. I would figure out which classes you need to spend more time on and create a schedule for studying. Being in a routine will help you stay on top of the chaos!'
+		,1003
+		,'2020-05-30 14:25:24.057'
+		,9
+		);
