@@ -26,7 +26,6 @@ export class QandaDetailComponent implements OnInit {
   //newUserName: string;
   newEmail: string;
   newDetail: string;
-  newQuestionId: number;
   newPosted: Date;
   newUpvotes: number;
 
@@ -40,7 +39,8 @@ export class QandaDetailComponent implements OnInit {
     this.isAuthenticated = this.authorizeService.isAuthenticated();
     this.authorizeService.getUser().subscribe(user => this.newEmail = user.name);
 
-    this.updateEvents()
+    this.updateEvents();
+    this.getAnswers();
   }
   async updateEvents() {
     this.answers = await this.qandAData.getAnswers()
@@ -52,12 +52,17 @@ export class QandaDetailComponent implements OnInit {
     console.log("Name: " + this.question.title)
   }
 
-  async addNewAnswer(qId: number) {
-    await this.qandAData.addNewAnswer({ email: this.newEmail, detail: this.newDetail, questionId: this.newQuestionId, posted: this.newPosted, upvotes: this.newUpvotes } as Answer)
+  async getAnswers() {
+    this.answers = await this.qandAData.getAnswerByID(this.id)
+    this.updateEvents()
+  }
 
+  async addNewAnswer() {
+    await this.qandAData.addNewAnswer({ email: this.newEmail, detail: this.newDetail, questionId: this.id} as Answer)
+    this.updateEvents()
     this.newDetail = ""
-    this.newQuestionId = qId
     this.newPosted = null
     this.newUpvotes = null
   }
+  
 }

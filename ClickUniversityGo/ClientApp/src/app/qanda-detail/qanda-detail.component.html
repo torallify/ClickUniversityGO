@@ -1,76 +1,33 @@
-<h3>{{question.title}}</h3>
-<h4>{{question.detail}}</h4>
-<p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
-
-
-<!--<div>
-  <div class="card" *ngFor="let answer of answers; let i = index">
-    <div class="card-body">
-      {{answer.detail}}
-      <p>Posted by {{answer.email}} {{answer.posted | date:'short' }}</p>
-    </div>
-    <div class="card-body">
-      <input type="hidden" id="email" [(ngModel)]="newEmail" class="form-control">
-      Detail: <input type="text" id="detail" [(ngModel)]="newDetail" class="form-control"><br />
-      QuestionId: <input type="text" id="questionId" [(ngModel)]="newQuestionId" class="form-control"><br />
-      <button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>
-    </div>
-  </div>
- </div>
-<div class="card">
-  <div class="card-header" id="headingTwo">
-    <h2 class="mb-0">
-      <button style="width:100%; text-align:center;" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <h3><strong>Answer</strong></h3>
-      </button>
-    </h2>
-  </div>
-  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-    <div class="card-body">
-      <input type="hidden" id="ID" [(ngModel)]="newId" class="form-control">
-      <input type="hidden" id="UserName" [(ngModel)]="newUserName" class="form-control">
-      <input type="hidden" id="QuestionId" [(ngModel)]="newQuestionId" class="form-control">
-      Detail: <input type="text" id="detail" [(ngModel)]="newDetail" class="form-control"><br />
-      <button (click)="addNewQuestion()" class="btn btn-outline-info btn-block" type="submit">Add Question</button>
-    </div>
-  </div>
+<div class="questionsDisplay">
+  <h3>{{question.title}}</h3>
+  <h4>{{question.detail}}</h4>
+  <p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
 </div>
 
-<button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>-->
-<!--div>
-  <h1 style="text-align: center; padding: 1px; color: mediumturquoise; font-family: 'Century Gothic'; font-size:3em ;margin-top: 30px"><strong>Answers</strong></h1>
-  <div style="margin-bottom:100px;" class="myaccordion" id="accordionExample">
-    <div class="card" *ngFor="let answer of answers; let i = index">
-      <div class="card-header" [id]="'heading'+i">
-        <h2 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse'+i">
-            <h3>{{answer.detail}}</h3>
-          </button>
+<h2 class="heading" style="text-align: center;">Responses</h2>
+
+<div class="answersDisplay" *ngFor="let answer of answers; let i = index">
+  <h3>{{answer.detail}}</h3>
+  <p>Answered by {{answer.email}} {{answer.posted | date:'short' }}</p>
+</div>
+
+<div style="margin-bottom:50px;" class="myaccordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button style="width:100%; text-align:center;" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <h4><strong>Add New Answer</strong></h4>
+        </button>
         </h2>
       </div>
-      <div [id]="'collapse'+i" class="collapse" [attr.aria-labelledby]="'heading'+i" data-parent="#accordionExample">
-        <div class="card-body">
-          <p>Posted by {{answer.email}} {{answer.posted | date:'short' }}</p>
-          <button (click)="add(event.id)">Add to Favorites</button>
-        </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <input type="hidden" id="email" [(ngModel)]="newEmail" class="form-control">
+        Detail: <input type="text" id="detail" [(ngModel)]="newDetail" class="form-control"><br />
+        <!--QuestionId: <input type="text" id="questionId" [(ngModel)]="newQuestionId" class="form-control"><br />-->
+        <button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h2 class="mb-0">
-          <button style="width:100%; text-align:center;" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            <h3><strong>Add New Answer</strong></h3>
-          </button>
-        </h2>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-        <div class="card-body">
-          <input type="hidden" id="email" [(ngModel)]="newEmail" class="form-control">
-          Detail: <input type="text" id="detail" [(ngModel)]="newDetail" class="form-control"><br />
-          QuestionId: <input type="text" id="questionId" [(ngModel)]="newQuestionId" class="form-control"><br />
-          <button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>
-        </div>
-      </div>
-    </div>
+
   </div>
-</div>-->
+</div>
