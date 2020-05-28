@@ -6,11 +6,17 @@
   <div class="image-wrapper">
     <div style="border: 1px solid black">
       <a href="https://{{university.website}}" target="_blank">
-        <img src="https://logo.clearbit.com/{{university.website}}" class="center"></a><br />
+        <img src="https://logo.clearbit.com/{{university.website}}" class="center"></a>
+        <div style="text-align:center">
+        <br/>
+        <button  (click)="addFavoriteUniversity()">Add to Favorites</button>
+        </div>
+        <br />
         <h2 style="text-align: center"><strong>{{university?.universityName}}</strong></h2><br />
 
         <strong>website: </strong><a href="https://{{university.website}}" target="_blank">{{university.website}}</a><br />
         <br />
+
         <table>
           <tr>
             <th style="text-align:center; width: 75%"><strong>Costs</strong></th>
