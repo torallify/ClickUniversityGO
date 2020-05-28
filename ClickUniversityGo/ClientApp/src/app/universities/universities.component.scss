@@ -7,12 +7,12 @@
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
-  font-family: Arial;
   font-size: 13px;
   padding: 6px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #154682;
   margin-left: 5px;
+  font-family: 'Century Gothic';
 }
 
 .searchButton:hover {
@@ -33,4 +33,23 @@ h3 {
 
 .notFound {
     color:crimson;
+}
+
+.txtBox {
+  border: 1px solid #9099ae;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+
+
+        
+
+.logoImagesSearch {
+  border-radius: 1000px;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  height: 50px;
+  margin-left: 200px;
 }

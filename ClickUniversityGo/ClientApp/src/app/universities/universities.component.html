@@ -1,102 +1,106 @@
-<h2 style="text-align:center">Search Colleges</h2>
+<h2 style="text-align:center;margin-bottom:0">Search Colleges</h2>
 
-<igx-tabs>
 
-  <igx-tabs-group label="Combined search">
     <br />
+    <div class="container">
+      
+      <div class="universitiesDisplay" style="text-align:center;margin-top:0">
+        <br />
+        <input class="txtBox" type="text" placeholder="Search by Name" [(ngModel)]="searchName" size="30" style="margin-right:5px;padding-left:5px"/>
+        <input class="txtBox" type="number" placeholder="ACT score" [(ngModel)]="searchActInput" size="25" min="13" max="36" style="width:105px;padding-left:5px " />
+        <input class="txtBox" type="number" placeholder="SAT score" [(ngModel)]="searchSatInput" size="20" min="760" step="10" style="margin: 0 5px 0 5px;width:105px;padding-left:5px" max="1600" />
+        <select [(ngModel)]="searchStateInput" style="width:230px;height:35px" class="txtBox">
+          <option value="">Choose a state (optional)</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI" selected>Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
 
-    <input type="number" placeholder="ACT score" [(ngModel)]="searchActInput" size="25" min="13" max="36" style="width:100px " />
-    <input type="number" placeholder="SAT score" [(ngModel)]="searchSatInput" size="20" min="760" step="10" style="margin: 0 5px 0 5px;width:100px" max="1600" />
-    <select [(ngModel)]="searchStateInput" style="width:200px;height:30px">
-      <option value="">Choose a state (optional)</option>
-      <option value="AL">Alabama</option>
-      <option value="AK">Alaska</option>
-      <option value="AZ">Arizona</option>
-      <option value="AR">Arkansas</option>
-      <option value="CA">California</option>
-      <option value="CO">Colorado</option>
-      <option value="CT">Connecticut</option>
-      <option value="DE">Delaware</option>
-      <option value="DC">District Of Columbia</option>
-      <option value="FL">Florida</option>
-      <option value="GA">Georgia</option>
-      <option value="HI">Hawaii</option>
-      <option value="ID">Idaho</option>
-      <option value="IL">Illinois</option>
-      <option value="IN">Indiana</option>
-      <option value="IA">Iowa</option>
-      <option value="KS">Kansas</option>
-      <option value="KY">Kentucky</option>
-      <option value="LA">Louisiana</option>
-      <option value="ME">Maine</option>
-      <option value="MD">Maryland</option>
-      <option value="MA">Massachusetts</option>
-      <option value="MI" selected>Michigan</option>
-      <option value="MN">Minnesota</option>
-      <option value="MS">Mississippi</option>
-      <option value="MO">Missouri</option>
-      <option value="MT">Montana</option>
-      <option value="NE">Nebraska</option>
-      <option value="NV">Nevada</option>
-      <option value="NH">New Hampshire</option>
-      <option value="NJ">New Jersey</option>
-      <option value="NM">New Mexico</option>
-      <option value="NY">New York</option>
-      <option value="NC">North Carolina</option>
-      <option value="ND">North Dakota</option>
-      <option value="OH">Ohio</option>
-      <option value="OK">Oklahoma</option>
-      <option value="OR">Oregon</option>
-      <option value="PA">Pennsylvania</option>
-      <option value="RI">Rhode Island</option>
-      <option value="SC">South Carolina</option>
-      <option value="SD">South Dakota</option>
-      <option value="TN">Tennessee</option>
-      <option value="TX">Texas</option>
-      <option value="UT">Utah</option>
-      <option value="VT">Vermont</option>
-      <option value="VA">Virginia</option>
-      <option value="WA">Washington</option>
-      <option value="WV">West Virginia</option>
-      <option value="WI">Wisconsin</option>
-      <option value="WY">Wyoming</option>
-    </select>
+        <button (click)="search(searchSatInput, searchActInput, searchStateInput); toggleShowNames()" class="searchButton">Search</button>
+        <button (click)="clearFilters(); search(searchSatInput, searchActInput, searchStateInput);" class="searchButton">Clear Filters</button>
+        <br />
 
-    <button (click)="search(searchSatInput, searchActInput, searchStateInput); toggleShowNames()" class="searchButton">Search</button>
-    <button (click)="clearFilters(); search(searchSatInput, searchActInput, searchStateInput);" class="searchButton">Clear Filters</button>
-    <br />
 
-    <!--<div [hidden]="hideName">-->
-    <div>
-      <input type="text" placeholder="Search by Name" [(ngModel)]="searchName" size="30" />
-    </div>
+        <!--<div [hidden]="hideName">-->
 
-    <div *ngFor="let university of searchResults">
-      <ng-container *ngIf="searchUniversity(university.universityName)">
-        <div>
-          <h3>
-            <a [routerLink]="[university.id]">
-              {{university.universityName}}
-            </a> - {{university.state}}
-          </h3>
 
-          <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
-          <br />
-          <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university.website}}"></a><br /><br />
-          <button (click)="postFavoriteUniversity(university.id)">Add to Favorites</button>
+
+        <br />
+      </div>
+        <div *ngFor="let university of searchResults">
+          <ng-container *ngIf="searchUniversity(university.universityName)">
+            <div class="universitiesDisplay">
+              <br />
+              <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university.website}}" class="logoImagesSearch"></a>&nbsp;
+              <a [routerLink]="[university.id]">{{university.universityName}}</a> - {{university.state}} &nbsp;
+              (<a href="https://{{university.website}}" target="_blank">{{university.website}}</a>)
+
+              <span style="float:right; margin-right:50px; margin-top:8px">
+              <button (click)="postFavoriteUniversity(university.id)" class="faveButton">Add to Favorites</button>
+                </span>
+                <br />
+              <br />
+            </div>
+
+          </ng-container>
+
+
         </div>
-        <hr />
-      </ng-container>
+        <div *ngIf="searchResults?.length==0">
+          <h3 class="notFound">No universities found! Please try again!</h3>
+        </div>
 
 
-    </div>
-    <div *ngIf="searchResults?.length==0">
-      <h3 class="notFound">No universities found! Please try again!</h3>
-    </div>
-
-  </igx-tabs-group>
-
-  <!--<igx-tabs-group label="Search by Name">
+      </div>
+      <!--<igx-tabs-group label="Search by Name">
       <br />
       <input type="text" placeholder="Search by Name" [(ngModel)]="searchName" size="30" /><br /><br />
       <div *ngFor="let university of universities">
@@ -114,7 +118,7 @@
       </div>
 
     </igx-tabs-group>-->
-  <!--<igx-tabs-group label="Search by State">
+      <!--<igx-tabs-group label="Search by State">
     <br />
 
     <select [(ngModel)]="searchStateInput" style="width:200px">
@@ -188,7 +192,7 @@
     </div>
 
   </igx-tabs-group>-->
-  <!--<igx-tabs-group label="By max ACT">
+      <!--<igx-tabs-group label="By max ACT">
     <br />
 
 
@@ -233,9 +237,8 @@
   </igx-tabs-group>-->
 
 
-</igx-tabs>
-<div>
-  <br />
-</div>
+      <div>
+        <br />
+      </div>
 
 
