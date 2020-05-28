@@ -38,17 +38,17 @@ namespace ClickUniversityGo.Controllers
         }
 
         // GET: api/QandA/UserName
-        [HttpGet("{UserName}")]
-        public IEnumerable<Question> GetQuestionsByUserName(string userName)
-        {
-            return dal.GetQuestionsByUserName(userName);
-        }
+        //[HttpGet("{UserName}")]
+        //public IEnumerable<Question> GetQuestionsByUserName(string userName)
+        //{
+        //    return dal.GetQuestionsByUserName(userName);
+        //}
 
-        [HttpGet("{Category}")]
-        public IEnumerable<Question> GetQuestionsByCategory(string category)
-        {
-            return dal.GetQuestionsByCategory(category);
-        }
+        //[HttpGet("{Category}")]
+        //public IEnumerable<Question> GetQuestionsByCategory(string category)
+        //{
+        //    return dal.GetQuestionsByCategory(category);
+        //}
 
 
         // POST: api/QandA

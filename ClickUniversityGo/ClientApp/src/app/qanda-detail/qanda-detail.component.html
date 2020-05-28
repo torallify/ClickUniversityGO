@@ -1,4 +1,8 @@
+{{question.title}}
+<h4>{{question.detail}}</h4>
+<p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
 
+<!--
 <div>
   <div class="card" *ngFor="let answer of answers; let i = index">
     <div class="card-body">
@@ -9,7 +13,7 @@
       <input type="hidden" id="email" [(ngModel)]="newEmail" class="form-control">
       Detail: <input type="text" id="detail" [(ngModel)]="newDetail" class="form-control"><br />
       QuestionId: <input type="text" id="questionId" [(ngModel)]="newQuestionId" class="form-control"><br />
-      <!--<button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>-->
+      <button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>
     </div>
   </div>
  </div>
@@ -31,9 +35,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 <button (click)="addNewAnswer()" class="btn btn-outline-info btn-block" type="submit">Add Answer</button>
 <!--div>

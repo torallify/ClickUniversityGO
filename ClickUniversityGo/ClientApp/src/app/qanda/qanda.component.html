@@ -1,24 +1,15 @@
-<div>
-  <h1 style="text-align: center; padding: 1px; color: mediumturquoise; font-family: 'Century Gothic'; font-size:3em ;margin-top: 30px"><strong>Questions</strong></h1>
-  <div style="margin-bottom:100px;" class="myaccordion" id="accordionExample">
-    <div class="card" *ngFor="let question of questions; let i = index">
-      <div class="card-header" [id]="'heading'+i">
-        <h2 class="mb-0">
-          <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse'+i">
-            <h3>{{question.title}}</h3>
-            <h4>{{question.detail}}</h4>
-            <p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
-
-          </button>
-        </h2>
-
-      </div>
-      <div [id]="'collapse'+i" class="collapse" [attr.aria-labelledby]="'heading'+i" data-parent="#accordionExample">
-        <div class="card-body">
-          <app-qanda-detail></app-qanda-detail>
-        </div>
-      </div>
-    </div>
+<h2 class="heading" style="text-align: center;">Questions</h2>
+<div *ngFor="let question of questions; let i = index" class="questionsDisplay">
+  <div>
+    <a [routerLink]="[question.id]">
+      <h3>{{question.title}}</h3>
+    </a>
+    <!--<h4>{{question.detail}}</h4>-->
+    <p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
+  </div>
+</div>
+  <div>
+    <div style="margin-bottom:100px;" class="myaccordion" id="accordionExample">
       <div class="card">
         <div class="card-header" id="headingTwo">
           <h2 class="mb-0">
@@ -34,11 +25,11 @@
             Detail: <input type="text" id="detail" [(ngModel)]="newDetail" class="form-control"><br />
             Category: <input type="text" id="category" [(ngModel)]="newCategory" class="form-control"><br />
             Tags: <input type="text" id="tags" [(ngModel)]="newTags" class="form-control"><br />
-            <button (click)="addNewQuestion()" class="btn btn-outline-info btn-block" type="submit">Add Question</button>
+            <button (click)="addNewQuestion()" onClick="location.href='/q-and-a'" class="btn btn-outline-info btn-block" type="submit">Add Question</button>
           </div>
         </div>
       </div>
+    </div>
   </div>
-</div>
 
 
