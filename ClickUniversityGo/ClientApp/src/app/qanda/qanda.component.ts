@@ -34,6 +34,7 @@ export class QandaComponent implements OnInit {
 
     this.updateEvents()
   }
+
   async updateEvents() {
     this.questions = await this.qandAData.getQuestions()
   }

@@ -8,7 +8,7 @@ namespace ClickUniversityGo.Models
     public class Favorite
     {
         public int ID { get; set; }
-        public string UserID { get; set; }
+        public string Email { get; set; }
         public int UniversityID { get; set; }
     }
 }

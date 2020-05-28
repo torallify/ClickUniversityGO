@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { University } from '../app/interfaces/university';
+import { Favorite } from './interfaces/favorite';
 
 @Injectable()
 export class UniversitiesDataService {
@@ -34,5 +35,14 @@ export class UniversitiesDataService {
   }
   searchCostOffCampusOutOfState(id: number) {
     return this.http.get<University[]>(`/api/university/off-campus-out-of-state/${id}`)
+  }
+
+  async postFavoriteUniversity(favorite: Partial<Favorite>) {
+    //let favoriteUniversity: Favorite = {
+    //  id: 0,
+    //  email: email,
+    //  universityId: id
+    //};
+    return this.http.post<Favorite>('/api/favorite', favorite).toPromise();
   }
 }
