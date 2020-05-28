@@ -3,6 +3,8 @@ import { UniversitiesDataService } from '../universities-data.service';
 import { FavoritesDataService } from '../favorites-data.service';
 import { University } from '../interfaces/university';
 import { JoinedItem } from '../interfaces/favorite';
+import { AuthorizeService } from '../../api-authorization/authorize.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-universities',
@@ -24,8 +26,10 @@ export class UniversitiesComponent {
   searchSatInput: number;
   searchResult: any;
   hideName: boolean;
+  newEmail: string;
+  public isAuthenticated: Observable<boolean>;
 
-  constructor(private universityData: UniversitiesDataService,
+  constructor(private authorizeService: AuthorizeService,private universityData: UniversitiesDataService,
     private favoriteData: FavoritesDataService) { }
 
   ngOnInit() {
@@ -33,6 +37,8 @@ export class UniversitiesComponent {
     this.searchStateInput = "";
     this.hideName = true;
     this.search(1600, 36, "");
+    this.isAuthenticated = this.authorizeService.isAuthenticated();
+    this.authorizeService.getUser().subscribe(user => this.newEmail = user.name);
   }
 
   get() {
@@ -64,6 +70,9 @@ export class UniversitiesComponent {
     return university.includes(this.searchStateInput);
   }
 
+  async postFavoriteUniversity(universityId: number) {
+    await this.universityData.postFavoriteUniversity({ id: 0, email: this.newEmail, universityId: universityId })
+  }
 
 
   search(SAT: any, ACT: any, State: string): any {

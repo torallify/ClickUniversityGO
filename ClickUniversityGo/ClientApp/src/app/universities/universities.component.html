@@ -79,7 +79,7 @@
               {{university.universityName}}
             </a> - {{university.state}}
           </h3>
-
+          <button (click)="postFavoriteUniversity(university.id)" >Add to Favorites</button>
 
           <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
           <br />

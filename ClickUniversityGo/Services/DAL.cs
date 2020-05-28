@@ -414,9 +414,9 @@ namespace ClickUniversityGo.Services
 
 
         // ************************ Favorites ********************
-        
-        
-        
+
+
+
         public IEnumerable<JoinedItem> GetAllFavorites(string email)
         {
             string queryString = "EXEC GetAllFavorites @Email";
@@ -436,9 +436,9 @@ namespace ClickUniversityGo.Services
 
         public int AddToFavorites(Favorite f)
         {
-            string executeQuery = "EXEC AddToFavorites @userID, @universityID";
+            string executeQuery = "INSERT INTO Favorites (Email, UniversityID) VALUES (@email, @universityID)";
 
-            int result = conn.Execute(executeQuery, new { userID = f.UserID, universityID = f.UniversityID });
+            int result = conn.Execute(executeQuery, new { Email = f.Email, UniversityID = f.UniversityID });
             conn.Close();
             return result;
         }
@@ -587,7 +587,7 @@ namespace ClickUniversityGo.Services
         public IEnumerable<Question> GetQuestionsByPostedDESC(DateTime date)
         {
             string queryString = "EXEC GetQuestionsByPostedDESC @Date";
-            IEnumerable<Question> Questions = conn.Query<Question>(queryString, new { Date = date});
+            IEnumerable<Question> Questions = conn.Query<Question>(queryString, new { Date = date });
             conn.Close();
             return Questions;
         }

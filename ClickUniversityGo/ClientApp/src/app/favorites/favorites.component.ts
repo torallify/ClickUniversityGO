@@ -4,6 +4,7 @@ import { JoinedItem } from '../interfaces/favorite';
 import { UniversitiesDataService } from '../universities-data.service';
 import { FavoritesDataService } from '../favorites-data.service';
 import { Observable } from 'rxjs';
+import { University } from '../interfaces/university';
 import { map, tap } from 'rxjs/operators';
 
 @Component({
@@ -15,9 +16,10 @@ import { map, tap } from 'rxjs/operators';
 export class FavoritesComponent implements OnInit {
   public isAuthenticated: Observable<boolean>;
   favorites: JoinedItem[];
+  favoriteUniversities: University[];
+  favoriteUniversity: University;
 
   constructor(private authorizeService: AuthorizeService,private uniData: UniversitiesDataService, private favData: FavoritesDataService) {}
-
   newEmail: string;
 
   ngOnInit() {
@@ -30,6 +32,8 @@ export class FavoritesComponent implements OnInit {
   async getFavorites() {
     this.favorites = await this.favData.getFavorites(this.newEmail)
   }
+
+  
 
   //deleteFavorite(id: number) {
   //  //replace with name of delete cart item from service
