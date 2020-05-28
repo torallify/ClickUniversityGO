@@ -436,8 +436,7 @@ namespace ClickUniversityGo.Services
 
         public int AddToFavorites(Favorite f)
         {
-            string executeQuery = "INSERT INTO Favorites (Email, UniversityID) VALUES (@Email, @UniversityID)";
-
+            string executeQuery = "EXEC AddToFavorites @Email, @UniversityID";
             int result = conn.Execute(executeQuery, f);
             conn.Close();
             return result;
@@ -490,8 +489,7 @@ namespace ClickUniversityGo.Services
         {
             q.Posted = DateTime.Now;
             q.Status = 1;
-            string addString = "Insert Into Questions (Email, Title, Detail, Posted, Category, Tags, Status) ";
-            addString += "Values (@Email, @Title, @Detail, @Posted, @Category, @Tags, @Status)";
+            string addString = "EXEC PostQuestion @Email, @Title, @Detail, @Posted, @Category, @Tags, @Status";
             return conn.Execute(addString, q);
         }
 
@@ -499,8 +497,7 @@ namespace ClickUniversityGo.Services
         {
             ans.Posted = DateTime.Now;
             ans.Upvotes = 0;
-            string addQuery = "Insert Into Answers (Email, Detail, QuestionId, Posted, Upvotes) ";
-            addQuery += "Values (@Email, @Detail, @QuestionId, @Posted, @Upvotes)";
+            string addQuery = "EXEC PostAnswer @Email, @Detail, @QuestionId, @Posted, @Upvotes";
             return conn.Execute(addQuery, ans);
         }
 
@@ -518,13 +515,13 @@ namespace ClickUniversityGo.Services
             conn.Close();
             return AllQuestions;
         }
-        public IEnumerable<Answer> GetAllAnswers()
-        {
-            string queryString = "SELECT * FROM Answers Order by Upvotes DESC";
-            IEnumerable<Answer> Answers = conn.Query<Answer>(queryString);
-            conn.Close();
-            return Answers;
-        }
+        //public IEnumerable<Answer> GetAllAnswers()
+        //{
+        //    string queryString = "SELECT * FROM Answers Order by Upvotes DESC";
+        //    IEnumerable<Answer> Answers = conn.Query<Answer>(queryString);
+        //    conn.Close();
+        //    return Answers;
+        //}
 
         //public Question GetQuestionById(int id)
         //{
