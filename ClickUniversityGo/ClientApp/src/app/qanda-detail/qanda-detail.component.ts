@@ -63,6 +63,7 @@ export class QandaDetailComponent implements OnInit {
     this.newDetail = ""
     this.newPosted = null
     this.newUpvotes = null
+    await this.getAnswers()
   }
-  
+ 
 }
