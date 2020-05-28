@@ -9,6 +9,7 @@ namespace ClickUniversityGo.Models
     {
         public int ID { get; set; }
         public int UserID { get; set; }
+        public int UniversityID { get; set; }
         public string UniversityName { get; set; }
         public string Website { get; set; }
         public string State { get; set; }

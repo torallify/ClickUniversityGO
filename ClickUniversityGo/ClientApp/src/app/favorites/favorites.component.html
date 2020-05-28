@@ -1,16 +1,16 @@
 <h2 class="heading" style="text-align: center;">Favorites</h2>
-<div *ngFor="let f of favorites" class="universitiesDisplay">
-  <div>
-    <br />
-    <a [routerLink]="['favorites', f.id]"><img class="logoImages" src="https://logo.clearbit.com/{{f?.website}}"></a>&nbsp;
-    {{f.universityName}} - {{f.state}}&nbsp;
-    (<a href="https://{{f.website}}" target="_blank">{{f.website}}</a>)
-    <button (click)="deleteFavorite(f.id)" class="btn btn-outline-danger">Remove from favorites</button>
-    <br />
-    <br />
+  <div *ngFor="let f of favorites" class="universitiesDisplay">
+    <div>
+      <br />
+      <a [routerLink]="['/universities/', f.universityID]"><img class="logoImages" src="https://logo.clearbit.com/{{f?.website}}"></a>&nbsp;
+      {{f.universityName}} - {{f.state}}&nbsp;
+      (<a href="https://{{f.website}}" target="_blank">{{f.website}}</a>)
+      <button (click)="deleteFavorite(f.id)" class="btn btn-outline-danger">Remove from favorites</button>
+      <br />
+      <br />
+    </div>
   </div>
-</div>
 
-<div *ngIf="favorites?.length==0">
-  <p>You currently have no favorites</p>
-</div>
+  <div *ngIf="favorites?.length==0">
+    <p>You currently have no favorites</p>
+  </div>
