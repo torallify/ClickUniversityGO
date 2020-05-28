@@ -79,11 +79,11 @@
               {{university.universityName}}
             </a> - {{university.state}}
           </h3>
-          <button (click)="postFavoriteUniversity(university.id)" >Add to Favorites</button>
 
           <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
           <br />
-          <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university.website}}"></a>
+          <a [routerLink]="[university.id]"><img src="https://logo.clearbit.com/{{university.website}}"></a><br /><br />
+          <button (click)="postFavoriteUniversity(university.id)">Add to Favorites</button>
         </div>
         <hr />
       </ng-container>
