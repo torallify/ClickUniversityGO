@@ -520,7 +520,7 @@ namespace ClickUniversityGo.Services
         }
         public IEnumerable<Answer> GetAllAnswers()
         {
-            string queryString = "SELECT * FROM Answers";
+            string queryString = "SELECT * FROM Answers Order by Upvotes DESC";
             IEnumerable<Answer> Answers = conn.Query<Answer>(queryString);
             conn.Close();
             return Answers;
