@@ -1,24 +1,24 @@
 <div class="questionsDisplay">
-  <h3>{{question.title}}</h3>
-  <h4>{{question.detail}}</h4>
-  <p>Posted by {{question.email}} {{question.posted | date:'short' }}</p>
+  <h3 style="color:#0061a7">{{question.title}}</h3>
+  <h5>{{question.detail}}</h5>
+  <p class="postedBy">Posted by {{question.email}} {{question.posted | date:'short' }}</p>
 </div>
 
-<h2 class="heading" style="text-align: center;">Responses</h2>
-
-<div class="answersDisplay" *ngFor="let answer of answers; let i = index">
-  <h3>{{answer.detail}}</h3>
-  <p>Answered by {{answer.email}} {{answer.posted | date:'short' }}</p>
+<!--<h2 class="heading" style="text-align: center;">Responses</h2>-->
+<hr style="border-top:1px solid" />
+<div class="answersDisplay" *ngFor="let answer of answers; let i = index" style="background-color:#fafafa">
+  <p class="answerDetail">{{answer.detail}}</p>
+  <p class="postedBy">Answered by {{answer.email}} {{answer.posted | date:'short' }}</p>
   <p>
     Upvotes: {{answer.upvotes}}
-    <button (click)="upVote(answer)" class="voteButton">^</button>
-    <button (click)="downVote(answer)" class="voteButton">v</button>
+    <button (click)="upVote(answer)" class="voteButton">&#8593;</button>
+    <button (click)="downVote(answer)" class="voteButton">&#8595;</button>
   </p>
   <input type="hidden" id="email" [(ngModel)]="newEmail" class="form-control">
 
 
   <div *ngIf="answer.email==newEmail">
-    <button (click)="toggleEdit()" class="searchButton" style="margin-left:0">Edit Answer</button>
+    <button (click)="toggleEdit()" class="clearFilters" style="margin-left:0">Edit Answer</button>
     <br /><br />
     <div [hidden]="showEdit">
       <input type="text" [(ngModel)]="updateInput" placeholder="Edit answer" class="form-control" />
