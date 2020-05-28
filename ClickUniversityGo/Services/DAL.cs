@@ -619,7 +619,8 @@ namespace ClickUniversityGo.Services
         public IEnumerable<Answer> GetAnswersByQuestionId(int id)
         {
             //string queryString = "EXEC GetAnswersByQuestionId @QuestionId";
-            string queryString = "SELECT * FROM Answers Where QuestionID = @QuestionId Order by Upvotes DESC";
+            //string queryString = "SELECT * FROM Answers Where QuestionID = @QuestionId Order by Upvotes DESC";
+            string queryString = "EXEC GetAnswersByQuestionIdOrderByUpvote @QuestionId";
             IEnumerable<Answer> AnswersByQuestionId = conn.Query<Answer>(queryString, new { QuestionId = id });
             conn.Close();
             return AnswersByQuestionId;
