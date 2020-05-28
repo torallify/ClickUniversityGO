@@ -21,11 +21,11 @@ export class HomeComponent {
 
   ngOnInit() {
     this.get();
-    this.getRandomNumber1(1, 1495);
-    this.getRandomNumber2(1, 1495);
-    this.getRandomNumber3(1, 1495);
-    this.getRandomNumber4(1, 1495);
-    this.getRandomNumber5(1, 1495);
+    this.getRandomNumber1(1, 1415);
+    this.getRandomNumber2(1, 1415);
+    this.getRandomNumber3(1, 1415);
+    this.getRandomNumber4(1, 1415);
+    this.getRandomNumber5(1, 1415);
   }
 
   get() {
