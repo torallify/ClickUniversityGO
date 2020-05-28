@@ -20,7 +20,10 @@ export class QandaDetailComponent implements OnInit {
   question: Question;
   @Input() ref: string;
   @Input() id: number;
+  @Input() answer: Answer;
   answers: Answer[];
+  updateInput: string;
+  showEdit: boolean;
 
   constructor(private authorizeService: AuthorizeService, public route: ActivatedRoute, private qandAData: QandADataService) { }
   //newUserName: string;
@@ -34,6 +37,7 @@ export class QandaDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.getQuestionByID(this.id);
+      this.showEdit = true;
     })
 
     this.isAuthenticated = this.authorizeService.isAuthenticated();
@@ -52,6 +56,9 @@ export class QandaDetailComponent implements OnInit {
     console.log("Name: " + this.question.title)
   }
 
+  toggleEdit = function () {
+    this.showEdit = !this.showEdit;
+  }
   async getAnswers() {
     this.answers = await this.qandAData.getAnswerByID(this.id)
     this.updateEvents()
@@ -65,5 +72,12 @@ export class QandaDetailComponent implements OnInit {
     this.newUpvotes = null
     await this.getAnswers()
   }
- 
+
+  async editAnswer(answerId: number) {
+    await this.qandAData.updateAnswer({ detail: this.updateInput, id: answerId })
+    this.updateInput = ""
+    this.updateEvents()
+    await this.getAnswers()
+  }
+  
 }

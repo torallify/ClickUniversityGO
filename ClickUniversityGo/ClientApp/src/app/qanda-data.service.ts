@@ -28,4 +28,8 @@ export class QandADataService {
   async getAnswerByID(id: number) {
     return this.http.get<Answer[]>(`/api/Answer/${id}`).toPromise();
   }
+
+  async updateAnswer(answer: Partial<Answer>) {
+    return this.http.put<Answer>('/api/Answer', answer).toPromise();
+  }
 }

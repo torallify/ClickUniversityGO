@@ -9,7 +9,21 @@
 <div class="answersDisplay" *ngFor="let answer of answers; let i = index">
   <h3>{{answer.detail}}</h3>
   <p>Answered by {{answer.email}} {{answer.posted | date:'short' }}</p>
-</div>
+  <input type="hidden" id="email" [(ngModel)]="newEmail" class="form-control">
+  
+  
+  <div *ngIf="answer.email==newEmail">
+    <button (click)="toggleEdit()" class="searchButton" style="margin-left:0">Edit Answer</button>
+    <br /><br />
+    <div [hidden]="showEdit">
+      <input type="text" [(ngModel)]="updateInput" placeholder="{{answer.detail}}" class="form-control"/>
+      <br />
+      <button (click)="editAnswer(answer.id)" class="btn btn-outline-info btn-block">Submit</button>
+    </div>
+  </div>
+  </div>
+
+
 
 <div style="margin-bottom:50px;" class="myaccordion" id="accordionExample">
   <div class="card">

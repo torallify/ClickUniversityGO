@@ -626,11 +626,13 @@ namespace ClickUniversityGo.Services
 
         internal int UpdateAnswer(Answer a)
         {
-            string command = "UPDATE Answers SET Detail=@detail WHERE ID=@id";
+            a.Posted = DateTime.Now;
+            string command = "UPDATE Answers SET Detail=@detail, Posted=@posted WHERE ID=@id";
             conn.Close();
             return conn.Execute(command, new
             {
                 detail = a.Detail,
+                posted= a.Posted,
                 id = a.Id,
             });
         }
