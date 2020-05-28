@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { UniversitiesDataService } from '../universities-data.service';
-import { FavoritesDataService } from '../favorites-data.service';
 import { University } from '../interfaces/university';
-import { JoinedItem } from '../interfaces/favorite';
+import { JoinedItem , Favorite} from '../interfaces/favorite';
 import { AuthorizeService } from '../../api-authorization/authorize.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-universities',
@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 /** universities component*/
 export class UniversitiesComponent {
   /** universities ctor */
+  @Input() id: number;
   universities: University[];
   actMathcedUniversities: University[];
   searchResults: University[];
@@ -30,7 +31,7 @@ export class UniversitiesComponent {
   public isAuthenticated: Observable<boolean>;
 
   constructor(private authorizeService: AuthorizeService,private universityData: UniversitiesDataService,
-    private favoriteData: FavoritesDataService) { }
+    ) { }
 
   ngOnInit() {
     this.searchName = "";
@@ -71,7 +72,7 @@ export class UniversitiesComponent {
   }
 
   async postFavoriteUniversity(universityId: number) {
-    await this.universityData.postFavoriteUniversity({ id: 0, email: this.newEmail, universityId: universityId })
+    await this.universityData.postFavoriteUniversity({email: this.newEmail, universityId: universityId })
   }
 
 

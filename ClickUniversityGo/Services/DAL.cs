@@ -436,9 +436,9 @@ namespace ClickUniversityGo.Services
 
         public int AddToFavorites(Favorite f)
         {
-            string executeQuery = "INSERT INTO Favorites (Email, UniversityID) VALUES (@email, @universityID)";
+            string executeQuery = "INSERT INTO Favorites (Email, UniversityID) VALUES (@Email, @UniversityID)";
 
-            int result = conn.Execute(executeQuery, new { Email = f.Email, UniversityID = f.UniversityID });
+            int result = conn.Execute(executeQuery, f);
             conn.Close();
             return result;
         }

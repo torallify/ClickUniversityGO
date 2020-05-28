@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { University } from '../app/interfaces/university';
 import { Favorite } from './interfaces/favorite';
 
+
 @Injectable()
 export class UniversitiesDataService {
   userID: string;
