@@ -231,6 +231,11 @@ SELECT *
 FROM Answers
 WHERE QuestionId = @QuestionId
 
+GO
+Create Procedure GetAnswersByQuestionIdOrderByUpvote @QuestionId int
+AS
+SELECT * FROM Answers Where QuestionID = @QuestionId Order by Upvotes DESC
+
 
 ---------------------------------------------------------------------------------------------------
 ----------------------------------- UserProfile Stored Procedures ---------------------------------------
