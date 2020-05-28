@@ -32,4 +32,12 @@ export class QandADataService {
   async updateAnswer(answer: Partial<Answer>) {
     return this.http.put<Answer>('/api/Answer', answer).toPromise();
   }
+
+  async upVoteAnswer(answer: Answer) {
+    return this.http.put<Answer>(`/api/Answer/${answer.id}`, answer).toPromise();
+  }
+
+  async downVoteAnswer(answer: Partial<Answer>) {
+    return this.http.put<Answer>(`/api/Answer/downVote/${answer.id}`, answer).toPromise();
+  }
 }

@@ -24,6 +24,7 @@ export class QandaDetailComponent implements OnInit {
   answers: Answer[];
   updateInput: string;
   showEdit: boolean;
+  updateUpVotes: number;
 
   constructor(private authorizeService: AuthorizeService, public route: ActivatedRoute, private qandAData: QandADataService) { }
   //newUserName: string;
@@ -79,5 +80,16 @@ export class QandaDetailComponent implements OnInit {
     this.updateEvents()
     await this.getAnswers()
   }
-  
+
+  async upVote(answer: Answer) {
+    await this.qandAData.upVoteAnswer(answer)
+    this.updateEvents()
+    await this.getAnswers()
+  }
+
+  async downVote(answer: Answer) {
+    await this.qandAData.downVoteAnswer(answer)
+    this.updateEvents()
+    await this.getAnswers()
+  }
 }

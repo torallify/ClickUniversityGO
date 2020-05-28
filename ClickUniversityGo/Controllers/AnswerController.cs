@@ -56,6 +56,31 @@ namespace ClickUniversityGo.Controllers
             };
         }
 
+        [HttpPut("{id}")]
+        public Object UpVoteAnswer(Answer a)
+        {
+            
+            int result = dal.UpVoteAnswer(a);
+            return new
+            {
+                result = result,
+                success = result == 1 ? true : false
+            };
+        }
+
+        [HttpPut("downVote/{id}")]
+        public Object DownVoteAnswer(Answer a)
+        {
+
+            int result = dal.DownVoteAnswer(a);
+            return new
+            {
+                result = result,
+                success = result == 1 ? true : false
+            };
+        }
+
+
         //// PUT: api/Answer/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody] string value)

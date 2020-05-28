@@ -624,7 +624,7 @@ namespace ClickUniversityGo.Services
             return AnswersByQuestionId;
         }
 
-        internal int UpdateAnswer(Answer a)
+        public int UpdateAnswer(Answer a)
         {
             a.Posted = DateTime.Now;
             string command = "UPDATE Answers SET Detail=@detail, Posted=@posted WHERE ID=@id";
@@ -636,6 +636,31 @@ namespace ClickUniversityGo.Services
                 id = a.Id,
             });
         }
+
+        public int UpVoteAnswer(Answer a)
+        {
+            a.Upvotes += 1;
+            string command = "UPDATE Answers SET Upvotes=@upvotes WHERE ID=@id";
+            conn.Close();
+            return conn.Execute(command, new
+            {
+                id = a.Id,
+                upvotes = a.Upvotes
+            });
+        }
+
+        public int DownVoteAnswer(Answer a)
+        {
+            a.Upvotes -= 1;
+            string command = "UPDATE Answers SET Upvotes=@upvotes WHERE ID=@id";
+            conn.Close();
+            return conn.Execute(command, new
+            {
+                id = a.Id,
+                upvotes = a.Upvotes
+            });
+        }
+
 
 
         // ************************ User Profiles ********************\
