@@ -25,9 +25,9 @@ namespace ClickUniversityGo.Controllers
 
         // GET: api/UserProfile
         [HttpGet("{email}")]
-        public IEnumerable<UserProfile> GetAllUsers(string email)
+        public IEnumerable<UserProfile> GetUserByEmail(string email)
         {
-            return dal.GetAllUsers(email);
+            return dal.GetUserByEmail(email);
         }
 
         //// GET: api/UserProfile/5

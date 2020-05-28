@@ -22,6 +22,6 @@ export class QandADataService {
     return this.http.post<number>('/api/Answer', answer).toPromise();
   }
   getQuestionByID(id: number) {
-    return this.http.get<Question>(`/api/QandA'/${id}`)
+    return this.http.get<Question>(`/api/QandA/${id}`)
   }
 }

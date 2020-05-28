@@ -2,10 +2,11 @@ import { Component, OnInit , Input} from '@angular/core';
 import { AuthorizeService } from '../../api-authorization/authorize.service';
 import { QandADataService } from '../qanda-data.service';
 import { Question, Answer } from '../interfaces/qandA';
+import { ActivatedRoute, Route } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { getLocaleDateTimeFormat } from '@angular/common';
-import { ActivatedRoute, Route } from '@angular/router';
+
 
 @Component({
   selector: 'app-qanda-detail',

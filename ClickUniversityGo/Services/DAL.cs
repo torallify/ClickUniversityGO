@@ -669,10 +669,10 @@ namespace ClickUniversityGo.Services
         //    return User;
         //}
 
-        public IEnumerable<UserProfile> GetAllUsers(string email)
+        public IEnumerable<UserProfile> GetUserByEmail(string email)
         {
-            string queryString = "EXEC GetUserByEmail @UserID";
-            IEnumerable<UserProfile> result = conn.Query<UserProfile>(queryString, new { UserID = email });
+            string queryString = "EXEC GetUserByEmail @Email";
+            IEnumerable<UserProfile> result = conn.Query<UserProfile>(queryString, new { Email = email });
             conn.Close();
             return result;
         }
