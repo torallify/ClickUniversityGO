@@ -87,10 +87,56 @@ OR NumBachelor IS NULL
 OR PercentAdmitted IS NULL
 OR GraduationRate IS NULL
 OR UndergradEnrollment IS NULL
-OR UndergradEnrollment <= 50
+OR UndergradEnrollment <= 200
 OR (ProgramEducation IS NULL 
 	AND ProgramEngineering IS NULL 
 	AND ProgramScience IS NULL
 	AND ProgramMath IS NULL
 	AND ProgramPhysicalScience IS NULL
 	AND ProgramBusiness IS NULL))
+OR Website IN ('www.bentley.edu'
+				,'www.cpp.edu'
+				,'www.bridgew.edu'
+				,'www.dbu.edu'
+				,'www.denison.edu'
+				, 'www.hbu.edu'
+				,'www.iuk.edu'
+				,'www.iun.edu'
+				, 'www.kcu.edu'
+				,'www.mtsu.edu'
+				,'northcentralcollege.edu'
+				,'www.sau.edu'
+				,'www.siue.edu'
+				,'www.sckans.edu'
+				,'www.southwestern.edu'
+				,'www.plattsburgh.edu'
+				,'www.utep.edu'
+				,'www.tougaloo.edu'
+				,'www.usmma.edu'
+				,'www.uaf.edu'
+				,'www.ucumberlands.edu'
+				,'www.vanguard.edu'
+				,'www.vcsu.edu'
+				,'www.vmi.edu'
+				,'www.css.edu'
+				,'www.wssu.edu'
+				,'www.wcmo.edu'
+				,'www.wju.edu'
+				,'www.bridgewater.edu/about-us'
+				,'www2.ccsu.edu/'
+				,'www.eiu.edu/'
+				,'www.ju.edu/index.php'
+				,'www.johnsonu.edu/Home'
+				,'www.umkc.edu/'
+				,'liu.edu/CWPost'
+				,'www.nyack.edu/consumerinfo'
+				,'www.cobleskill.edu/'
+				,'ualr.edu/www/'
+				,'w.umwestern.edu/'
+				,'williamsbaptistuniversity.com/'
+				,'www.d.umn.edu/'
+				,'wmich.edu/'
+				,'www.warner.edu/academics/undergraduate_programs/admissions/criteria-for-admission/'
+				,'www.eastern.edu/about/student-consumer-information'
+				,'www.fhu.edu'
+				)
