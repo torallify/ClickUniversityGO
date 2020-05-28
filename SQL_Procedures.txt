@@ -235,11 +235,6 @@ WHERE QuestionId = @QuestionId
 ---------------------------------------------------------------------------------------------------
 ----------------------------------- UserProfile Stored Procedures ---------------------------------------
 ---------------------------------------------------------------------------------------------------
-GO
-CREATE PROCEDURE GetAllUsers
-AS
-SELECT *
-FROM UserProfiles
 
 GO
 CREATE PROCEDURE GetUserByEmail @Email NVARCHAR(256)
