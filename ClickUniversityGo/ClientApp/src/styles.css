@@ -4,6 +4,8 @@
 
 body {
   /*background: linear-gradient(to left, #8e9eab, #eef2f3);*/
+  /*background-color: #e4dcd9;*/
+  background-color: white;
 }
 a {
   color: #0366d6;
@@ -29,6 +31,10 @@ code {
   margin-left: auto;
   margin-right: auto;
   width: 20%;
+  border-style: solid;
+  border-color: black;
+  border: 2px;
+  border-radius: 4px;
 }
 
 /*.detailsStyle {
@@ -184,3 +190,16 @@ code {
     position: relative;
     top: 1px;
   }
+
+.universityDetail {
+  border: 1px black;
+  border-radius: 12px;
+  border-width: 6px;
+  box-shadow: 5px 5px 5px 5px #d9d9d9;
+  padding: 40px;
+}
+
+.websiteUniversityDetail {
+    text-align: center;
+    
+}

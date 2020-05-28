@@ -4,7 +4,8 @@
 
 
   <div class="image-wrapper">
-    <div style="border: 1px solid black">
+    <div class="universityDetail">
+      <br />
       <a href="https://{{university.website}}" target="_blank">
         <img src="https://logo.clearbit.com/{{university.website}}" class="center"></a>
         <div style="text-align:center">
@@ -12,114 +13,116 @@
         <button  (click)="addFavoriteUniversity()" class="faveButton">Add to Favorites</button>
         </div>
         <br />
-        <h2 style="text-align: center"><strong>{{university?.universityName}}</strong></h2><br />
-
-        <strong>website: </strong><a href="https://{{university.website}}" target="_blank">{{university.website}}</a><br />
+        <h4 style="text-align: center; font-family: 'Century Gothic';">{{university?.universityName}}</h4><br />
+        <div class="websiteUniversityDetail">
+          <a href="https://{{university.website}}" target="_blank">{{university.website}}</a><br />
+        </div>
         <br />
-
-        <table>
-          <tr>
-            <th style="text-align:center; width: 75%"><strong>Costs</strong></th>
-          </tr>
-          <tr>
-            <td>Cost On Campus for In-State</td>
-            <td>{{university?.costOnCampusInState | currency}}</td>
-          </tr>
-          <tr>
-            <td>Cost On Campus Out-Of-State</td>
-            <td>{{university?.costOnCampusOutOfState | currency}}</td>
-          </tr>
-          <tr>
-            <td> Cost Off Campus for In-State</td>
-            <td>{{university?.costOffCampusInState | currency}}</td>
-          </tr>
-          <tr>
-            <td>Cost Off Campus Out-of-State</td>
-            <td>{{university?.costOffCampusOutOfState | currency}}</td>
-          </tr>
-        </table>
-        <br />
-        <br />
-        <table>
-          <tr>
-            <th style="text-align:center; width: 75%"><strong>Class Sizes</strong></th>
-          </tr>
-          <tr>
-            <td>Undergraduate Class</td>
-            <td style="text-align:right">{{university?.undergradEnrollment}}</td>
-          </tr>
-
-
-          <tr>
-            <td> Bachelor Degrees</td>
-            <td style="text-align:right">{{university?.numBachelor}}</td>
-          </tr>
-          <tr>
-            <td>Associate Degrees</td>
-            <td style="text-align:right">{{university?.numAssociate}}</td>
-          </tr>
+        <div>
+          <table>
+            <tr>
+              <th style="text-align:center; width: 75%"><strong>Costs</strong></th>
+            </tr>
+            <tr>
+              <td>Cost On Campus for In-State</td>
+              <td>{{university?.costOnCampusInState | currency}}</td>
+            </tr>
+            <tr>
+              <td>Cost On Campus Out-Of-State</td>
+              <td>{{university?.costOnCampusOutOfState | currency}}</td>
+            </tr>
+            <tr>
+              <td> Cost Off Campus for In-State</td>
+              <td>{{university?.costOffCampusInState | currency}}</td>
+            </tr>
+            <tr>
+              <td>Cost Off Campus Out-of-State</td>
+              <td>{{university?.costOffCampusOutOfState | currency}}</td>
+            </tr>
+          </table>
+          <br />
+          <br />
+          <table>
+            <tr>
+              <th style="text-align:center; width: 75%"><strong>Class Sizes</strong></th>
+            </tr>
+            <tr>
+              <td>Undergraduate Class</td>
+              <td style="text-align:right">{{university?.undergradEnrollment}}</td>
+            </tr>
 
 
-          <tr>
-            <td style="text-align:center"><strong>By Program</strong></td>
-          </tr>
-          <tr>
-            <td>Business</td>
-            <td>{{university?.programBusiness}}</td>
-          </tr>
-          <tr>
-            <td>Science</td>
-            <td>{{university?.programScience}}</td>
-          </tr>
-          <tr>
-            <td>Physical Science</td>
-            <td>{{university?.programPhysicalScience}}</td>
-          </tr>
-          <tr>
-            <td>Math</td>
-            <td>{{university?.programMath}}</td>
-          </tr>
-          <tr>
-            <td>Engineering</td>
-            <td>{{university?.programEngineering}}</td>
-          </tr>
-          <tr>
-            <td>Education</td>
-            <td>{{university?.programEducation}}</td>
-          </tr>
-        </table>
-        <br />
-        <br />
+            <tr>
+              <td> Bachelor Degrees</td>
+              <td style="text-align:right">{{university?.numBachelor}}</td>
+            </tr>
+            <tr>
+              <td>Associate Degrees</td>
+              <td style="text-align:right">{{university?.numAssociate}}</td>
+            </tr>
 
-        <table>
-          <tr>
-            <th style="text-align:center; width: 50%"><strong>Competition Indicators</strong></th>
-          </tr>
-          <tr>
-            <td>Percent Admitted</td>
-            <td> {{university?.percentAdmitted * .01 | percent}}</td>
-          </tr>
-          <tr>
-            <td>Average ACT Score:</td>
-            <td>{{university?.actComposite}}</td>
-          </tr>
-          <tr>
-            <td>Average SAT Score:</td>
-            <td>{{university?.satMath + university?.satReadWrite}}</td>
-          </tr>
-          <tr>
-            <td rowspan="2">&nbsp;&nbsp;SAT Breakdown:</td>
-            <td style="text-align:left"> &nbsp;&nbsp;Math:</td>
-            <td style="text-align:left">{{university?.satMath}}</td>
-          </tr>
-          <tr>
-            <td style="text-align:left">&nbsp;&nbsp;Read/Write:</td>
-            <td style="text-align:left">{{university?.satReadWrite}}</td>
-          </tr>
-        </table>
-        <br />
-        <br />
-        <br />
+
+            <tr>
+              <td style="text-align:center"><strong>By Program</strong></td>
+            </tr>
+            <tr>
+              <td>Business</td>
+              <td>{{university?.programBusiness}}</td>
+            </tr>
+            <tr>
+              <td>Science</td>
+              <td>{{university?.programScience}}</td>
+            </tr>
+            <tr>
+              <td>Physical Science</td>
+              <td>{{university?.programPhysicalScience}}</td>
+            </tr>
+            <tr>
+              <td>Math</td>
+              <td>{{university?.programMath}}</td>
+            </tr>
+            <tr>
+              <td>Engineering</td>
+              <td>{{university?.programEngineering}}</td>
+            </tr>
+            <tr>
+              <td>Education</td>
+              <td>{{university?.programEducation}}</td>
+            </tr>
+          </table>
+          <br />
+          <br />
+
+          <table>
+            <tr>
+              <th style="text-align:center; width: 50%"><strong>Competition Indicators</strong></th>
+            </tr>
+            <tr>
+              <td>Percent Admitted</td>
+              <td> {{university?.percentAdmitted * .01 | percent}}</td>
+            </tr>
+            <tr>
+              <td>Average ACT Score:</td>
+              <td>{{university?.actComposite}}</td>
+            </tr>
+            <tr>
+              <td>Average SAT Score:</td>
+              <td>{{university?.satMath + university?.satReadWrite}}</td>
+            </tr>
+            <tr>
+              <td rowspan="2">&nbsp;&nbsp;SAT Breakdown:</td>
+              <td style="text-align:left"> &nbsp;&nbsp;Math:</td>
+              <td style="text-align:left">{{university?.satMath}}</td>
+            </tr>
+            <tr>
+              <td style="text-align:left">&nbsp;&nbsp;Read/Write:</td>
+              <td style="text-align:left">{{university?.satReadWrite}}</td>
+            </tr>
+          </table>
+          <br />
+          <br />
+          <br />
+        </div>
     </div>
   </div>
 <!--</div>-->
