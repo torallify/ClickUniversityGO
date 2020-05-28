@@ -44,6 +44,18 @@ namespace ClickUniversityGo.Controllers
             return result;
         }
 
+        
+        [HttpPut]
+        public Object UpdateAnswer(Answer a)
+        {
+            int result = dal.UpdateAnswer(a);
+            return new
+            {
+                result = result,
+                success = result == 1 ? true : false
+            };
+        }
+
         //// PUT: api/Answer/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody] string value)

@@ -624,6 +624,17 @@ namespace ClickUniversityGo.Services
             return AnswersByQuestionId;
         }
 
+        internal int UpdateAnswer(Answer a)
+        {
+            string command = "UPDATE Answers SET Detail=@detail WHERE ID=@id";
+            conn.Close();
+            return conn.Execute(command, new
+            {
+                detail = a.Detail,
+                id = a.Id,
+            });
+        }
+
 
         // ************************ User Profiles ********************\
         //public int AddUserProfile(UserProfile newUserProfile)
