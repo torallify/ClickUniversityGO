@@ -147,10 +147,10 @@ WHERE ProgramPhysicalScience <= @ProgramPhysicalScience
 ---------------------------------------------------------------------------------------------------
 
 GO
-CREATE PROCEDURE AddToFavorites (@userID NVARCHAR(10), @universityID NVARCHAR(10))
+CREATE PROCEDURE AddToFavorites (@email NVARCHAR(256), @universityID NVARCHAR(10))
 AS
-INSERT INTO Favorites (UserID, UniversityID) 
-VALUES (@userID, @universityID)
+INSERT INTO Favorites (Email, UniversityID) 
+VALUES (@email, @universityID)
 
 GO
 CREATE PROCEDURE RemoveFromFavorites @id NVARCHAR(10)
