@@ -26,6 +26,14 @@ code {
   background-size: auto;
 }
 
+.jumboDisplay {
+  border-radius: 10px;
+  border: 4px;
+  border-style: solid;
+  font-family: 'Century Gothic';
+  /*box-shadow: 3px 3px 3px 3px #d9d9d9;*/
+}
+
 .center {
   display: block;
   margin-left: auto;

@@ -12,36 +12,37 @@
   <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
 </ul>
 <p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>-->
-
-  <ngb-carousel *ngIf="images">
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[0]" alt="Random first slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>Click University Go</h3>
-        <p>Success starts here.</p>
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[1]" alt="Random second slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>University Search</h3>
-        <p>Find the college that's right for you.</p>
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[2]" alt="Random third slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>Have a Question?</h3>
-        <p>Ask 1000's of professors anything.</p>
-      </div>
-    </ng-template>
-  </ngb-carousel>
+  <div class="jumboDisplay">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[0]" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h2 style="color: white; text-shadow: 3px 3px 4px #000000;">Click University Go</h2>
+          <h4 style="color: white; text-shadow: 3px 3px 4px #000000;">Success starts here.</h4>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[1]" alt="Random second slide">
+        </div>
+        <div class="carousel-caption">
+          <h2 style="color: white; text-shadow: 3px 3px 4px #000000;">University Search</h2>
+          <h4 style="color: white; text-shadow: 3px 3px 4px #000000;">Find the college that's right for you.</h4>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[2]" alt="Random third slide">
+        </div>
+        <div class="carousel-caption">
+          <h2 style="color: white; text-shadow: 3px 3px 4px #000000;">Have a Question?</h2>
+          <h4 style="color: white; text-shadow: 3px 3px 4px #000000;">Ask 1000's of professors anything.</h4>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
 
 <div class="container">
   <!--<div class="jumbotron">
