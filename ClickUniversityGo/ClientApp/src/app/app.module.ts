@@ -42,9 +42,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-
-    HttpClientModule,
     NgbModule,
+    HttpClientModule,
+    
 
     FormsModule,
     ApiAuthorizationModule,
