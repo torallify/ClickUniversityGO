@@ -6,6 +6,7 @@ import { University } from '../interfaces/university';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+
 })
 export class HomeComponent {
   universities: University[];
@@ -21,12 +22,14 @@ export class HomeComponent {
 
   ngOnInit() {
     this.get();
-    this.getRandomNumber1(1, 1394);
-    this.getRandomNumber2(1, 1394);
-    this.getRandomNumber3(1, 1394);
-    this.getRandomNumber4(1, 1394);
-    this.getRandomNumber5(1, 1394);
+    this.getRandomNumber1(1, 1391);
+    this.getRandomNumber2(1, 1391);
+    this.getRandomNumber3(1, 1391);
+    this.getRandomNumber4(1, 1391);
+    this.getRandomNumber5(1, 1391);
   }
+
+  images = ['/CollegePhotos/CampusBuilding4.png', '/CollegePhotos/GraduationDay1.jpg','/CollegePhotos/Lecture2.jpg'];
 
   get() {
     this.universityData.getAllUniversities().subscribe(

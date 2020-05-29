@@ -24,7 +24,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IgxTabsModule } from 'igniteui-angular';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,10 +38,11 @@ import { IgxTabsModule } from 'igniteui-angular';
     UniversitiesComponent,
     UniversityDetailComponent,
     UserProfileComponent,
-    UserProfileDetailComponent
+    UserProfileDetailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    NgbModule,
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
@@ -53,12 +54,13 @@ import { IgxTabsModule } from 'igniteui-angular';
       { path: 'user-profile', component: UserProfileDetailComponent, canActivate: [AuthorizeGuard] },
       { path: 'q-and-a', component: QandaComponent, canActivate: [AuthorizeGuard] },
       { path: 'q-and-a/:id', component: QandaDetailComponent, canActivate: [AuthorizeGuard] },
-      { path: 'favorites', component: FavoritesComponent, canActivate: [AuthorizeGuard] }
+      { path: 'favorites', component: FavoritesComponent, canActivate: [AuthorizeGuard] },
+      { path: '**', component: PagenotfoundComponent },
       //{ path: 'counter', component: CounterComponent },
       //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ]),
     BrowserAnimationsModule,
-    IgxTabsModule
+    IgxTabsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },

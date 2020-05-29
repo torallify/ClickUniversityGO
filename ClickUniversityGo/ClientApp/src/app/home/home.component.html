@@ -13,22 +13,42 @@
 </ul>
 <p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>-->
 
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" alt="Random first slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Click University Go</h3>
+        <p>Success starts here.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" alt="Random second slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>University Search</h3>
+        <p>Find the college that's right for you.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" alt="Random third slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Have a Question?</h3>
+        <p>Ask 1000's of professors anything.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
 <div class="container">
-  <div class="jumbotron">
+  <!--<div class="jumbotron">
     <h1 style="color: white; text-shadow: 3px 3px 4px #000000;">Click University Go</h1>
     <h2 style="color: white; text-shadow: 3px 3px 4px #000000;">Success starts here.</h2>
-  </div>
-  <!--<div>
-    <div *ngFor="let university of universities; let i = index;">
-      <div *ngIf="i < 1495" class="homePageDisplay">
-        {{university.universityName}} - {{university.state}}
-        <br />
-        <a href="https://{{university.website}}" target="_blank">{{university.website}}</a>
-        <br />
-        <a [routerLink]="['universities', university.id]"><img src="https://logo.clearbit.com/{{university?.website}}"></a>
-      </div>
-    </div>
   </div>-->
+  
   <div class="universitiesDisplay">
     <br />
     <a [routerLink]="['universities', universities[randomUniversity1].id]"><img class="logoImages" src="https://logo.clearbit.com/{{universities[randomUniversity1]?.website}}"></a>&nbsp;
