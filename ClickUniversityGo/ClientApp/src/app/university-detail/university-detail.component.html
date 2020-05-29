@@ -27,10 +27,7 @@
           <tr>
             <th style="width: 50%">Competition Indicators</th>
           </tr>
-          <tr>
-            <td>Percent Admitted</td>
-            <td> {{university?.percentAdmitted * .01 | percent}}</td>
-          </tr>
+
           <tr>
             <td>Average ACT Score:</td>
             <td>{{university?.actComposite}}</td>
@@ -47,6 +44,10 @@
           <tr>
             <td style="text-align:left">&nbsp;&nbsp;Read/Write:</td>
             <td style="text-align:left">{{university?.satReadWrite}}</td>
+          </tr>
+          <tr>
+            <td>Percent Admitted</td>
+            <td> {{university?.percentAdmitted * .01 | percent}}</td>
           </tr>
         </table>
 
