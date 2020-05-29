@@ -1,3 +1,6 @@
+.navBackground {
+  background: linear-gradient(to right, #4b6cb7, #182848);
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;

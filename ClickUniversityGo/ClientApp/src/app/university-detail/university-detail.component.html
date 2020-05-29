@@ -22,9 +22,38 @@
       <br />
       <div style="float: right; margin-right: 50px; margin-top: 60px; width: 500px;"><img style="float: right; border: solid 5px; border-radius: 10px; width:80%" src="/CollegePhotos/StudentsStudyLib2.jpg" /></div>
       <div style="float: left; width: 400px;">
+
         <table>
           <tr>
-            <th style="text-align:center; width: 75%"><strong>Costs</strong></th>
+            <th style="width: 50%">Competition Indicators</th>
+          </tr>
+          <tr>
+            <td>Percent Admitted</td>
+            <td> {{university?.percentAdmitted * .01 | percent}}</td>
+          </tr>
+          <tr>
+            <td>Average ACT Score:</td>
+            <td>{{university?.actComposite}}</td>
+          </tr>
+          <tr>
+            <td>Average SAT Score:</td>
+            <td>{{university?.satMath + university?.satReadWrite}}</td>
+          </tr>
+          <tr>
+            <td rowspan="2">&nbsp;&nbsp;SAT Breakdown:</td>
+            <td style="text-align:left"> &nbsp;&nbsp;Math:</td>
+            <td style="text-align:left">{{university?.satMath}}</td>
+          </tr>
+          <tr>
+            <td style="text-align:left">&nbsp;&nbsp;Read/Write:</td>
+            <td style="text-align:left">{{university?.satReadWrite}}</td>
+          </tr>
+        </table>
+
+        <br />
+        <table>
+          <tr>
+            <th style="width: 75%">Costs</th>
           </tr>
           <tr>
             <td>Cost On Campus for In-State</td>
@@ -44,10 +73,10 @@
           </tr>
         </table>
         <br />
-        <br />
+
         <table>
           <tr>
-            <th style="text-align:center; width: 75%"><strong>Class Sizes</strong></th>
+            <th style="width: 75%">Class Sizes</th>
           </tr>
           <tr>
             <td>Undergraduate Class</td>
@@ -64,9 +93,9 @@
             <td style="text-align:right">{{university?.numAssociate}}</td>
           </tr>
 
-
+          <br />
           <tr>
-            <td style="text-align:center"><strong>By Program</strong></td>
+            <th>By Program</th>
           </tr>
           <tr>
             <td>Business</td>
@@ -94,34 +123,9 @@
           </tr>
         </table>
         <br />
-        <br />
 
-        <table>
-          <tr>
-            <th style="text-align:center; width: 50%"><strong>Competition Indicators</strong></th>
-          </tr>
-          <tr>
-            <td>Percent Admitted</td>
-            <td> {{university?.percentAdmitted * .01 | percent}}</td>
-          </tr>
-          <tr>
-            <td>Average ACT Score:</td>
-            <td>{{university?.actComposite}}</td>
-          </tr>
-          <tr>
-            <td>Average SAT Score:</td>
-            <td>{{university?.satMath + university?.satReadWrite}}</td>
-          </tr>
-          <tr>
-            <td rowspan="2">&nbsp;&nbsp;SAT Breakdown:</td>
-            <td style="text-align:left"> &nbsp;&nbsp;Math:</td>
-            <td style="text-align:left">{{university?.satMath}}</td>
-          </tr>
-          <tr>
-            <td style="text-align:left">&nbsp;&nbsp;Read/Write:</td>
-            <td style="text-align:left">{{university?.satReadWrite}}</td>
-          </tr>
-        </table>
+
+
         <br />
         <br />
         <br />

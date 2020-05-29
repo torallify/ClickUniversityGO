@@ -5,7 +5,7 @@
 body {
   /*background: linear-gradient(to left, #8e9eab, #eef2f3);*/
   /*background-color: #e4dcd9;*/
-  background-color: white;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
 }
 a {
   color: #0366d6;
@@ -152,7 +152,7 @@ code {
   text-decoration: none;
   text-shadow: 0px 1px 0px #283966;
 }
-333
+
   .faveButton:hover {
     background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
     background-color: #476e9e;
@@ -198,6 +198,7 @@ code {
   box-shadow: 5px 5px 5px 5px #d9d9d9;
   padding: 40px;
   height: 1200px;
+  margin-top:30px;
 }
 
 .websiteUniversityDetail {
