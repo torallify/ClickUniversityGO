@@ -162,4 +162,6 @@ OR Website IN ('www.bentley.edu'
 				,'newkensington.psu.edu/'
 				,'sjcny.edu'
 				,'www.sjcny.edu'
+				,'www.trine.edu/adult-studies/index.aspx'
+				,'www.ursuline.edu'
 				)

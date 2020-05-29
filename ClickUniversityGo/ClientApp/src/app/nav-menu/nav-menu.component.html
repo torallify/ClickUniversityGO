@@ -1,23 +1,18 @@
 <header>
-  <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3 fixed-top" style="background: linear-gradient(to left, #ece9e6, #ffffff);">
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3 fixed-top" style="background: linear-gradient(to left, #ece9e6, #ffffff);">
     <div class="container">
       <img style="height: 40px" src="/CollegePhotos/Logo.png" />&nbsp;<a class="navbar-brand" [routerLink]="['/']">Click University Go</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
-      >
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-        [ngClass]="{ show: isExpanded }"
-      >
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+           [ngClass]="{ show: isExpanded }">
         <app-login-menu></app-login-menu>
         <ul class="navbar-nav flex-grow">
           <!--<li
@@ -28,29 +23,26 @@
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
             q-and-a-->
-          
+
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/universities']"
-              >Search Colleges</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/universities']">Search Colleges</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/q-and-a']"
-              >Q&A</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/q-and-a']">Q&A</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/user-profile']"
-              >Profile</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/user-profile']">Profile</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/favorites']"
-              >Favorites</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/favorites']">Favorites</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
+<div class="footer">
+  <div class="container">
+    &copy; 2020 - [ DevBuild(3.0) ] - Click University Go - 
+  </div>
+</div>
